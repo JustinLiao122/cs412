@@ -1,0 +1,45 @@
+
+{% load static %}
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="{% static 'quotes/styles.css' %}">
+    </head>
+    <body>
+        
+        
+        <h1 class = "header">Micheal Phelps Quote of the Day</h1>
+        <nav class = "buttons">
+            <table>
+                <tr>
+                    <td>
+                        <a href="{% url 'quote' %}">Quote of the Day</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'show' %}">Show All</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'aboutquotes' %}">About</a>
+                    </td>
+                
+               
+                </tr>
+            </table>
+        </nav>
+
+
+    
+
+        {% block content %}
+        <section class = page>
+            <h2 class = quote>{{quotes}}</h2>
+        
+            <img src="{% static 'images/' %}{{ pictures }}" alt="Description of the image"  width="600" 
+            height="auto">
+        </section>
+        {%endblock%}
+        <footer>
+            The current time is {{time}}.
+        </footer>
+    </body>
+</html>

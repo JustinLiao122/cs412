@@ -1,0 +1,31 @@
+{% extends 'quotes/base.html' %}
+{%block content %}
+
+{%load static%}
+
+        
+
+<div class="container">
+    <h2>All Quotes by Michael Phelps</h2>
+    <table>
+        <tr><td><p>{{ quote1 }}</p></td></tr>
+        <tr><td><p>{{ quote2 }}</p></td></tr>
+        <tr><td><p>{{ quote3 }}</p></td></tr>
+        <tr><td><p>{{ quote4 }}</p></td></tr>
+        <tr><td><p>{{ quote5 }}</p></td></tr>
+        <tr><td><p>{{ quote6 }}</p></td></tr>
+    </table>
+
+    <h2>All Images of Michael Phelps</h2>
+    <table>
+        <tr><td><img src="{% static 'images/' %}{{ image1 }}" alt="Image 1"></td></tr>
+        <tr><td><img src="{% static 'images/' %}{{ image2 }}" alt="Image 2"></td></tr>
+        <tr><td><img src="{% static 'images/' %}{{ image3 }}" alt="Image 3"></td></tr>
+        <tr><td><img src="{% static 'images/' %}{{ image4 }}" alt="Image 4"></td></tr>
+        <tr><td><img src="{% static 'images/' %}{{ image5 }}" alt="Image 5"></td></tr>
+        <tr><td><img src="{% static 'images/' %}{{ image6 }}" alt="Image 6"></td></tr>
+    </table>
+</div>
+
+ {%endblock%}
+      

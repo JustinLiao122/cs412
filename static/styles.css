@@ -1,0 +1,19 @@
+body {
+    background-color:  rgb(4, 30, 39);
+    color: slategray;
+    font-family:Copperplate, Papyrus, fantasy;
+}
+
+h1,h2,h3,h4,h5{
+    color: white;
+    font-weight: normal;
+    margin: 0;
+}
+
+a, a:visited{
+    color:slategrey;
+    text-decoration: none;
+}
+
+
+
