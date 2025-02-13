@@ -1,0 +1,89 @@
+<!--restaurant/templates/restaurant/confirmation.html-->
+
+{% extends 'restaurant/base.html' %}
+{%block content %}
+
+
+{%load static%}
+
+<h1>Confirmation</h1>
+
+<table>
+
+   
+    <tr>
+        <td>
+            <h2>Thank you for your order!</h2>
+        </td>
+        <td>
+            <h2 class="green">Total: ${{total}}</h2>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <h2>Your order will be ready at:{{time}}</h2>
+    </td>
+</tr>
+    {% if items %}
+        <tr><td><h2 class="green">Items ordered</h2></td></tr>
+        {% for item in items %}
+        <tr><td><p>{{ item }}</p></td></tr>
+        {% endfor %}
+   
+    {% else %}
+        <tr><td><h2 class="green">No items selected</h2></td></tr>
+    {% endif %}
+
+
+    {% if toppings %}
+        <tr><td><h2 class="green">Toppings ordered</h2></td></tr>
+        {% for topping in toppings %}
+        <tr><td><p>{{ topping }}</p></td></tr>
+        {% endfor %}
+   
+    {% else %}
+        <tr><td><h2 class="green">No toppings selected</h2></td></tr>
+
+    {% endif %}
+
+
+
+    {% if special %}
+        <tr><td><h2 class="green">Speical ordered</h2></td></tr>
+        {% for daily in special %}
+        <tr><td><p>{{ daily }}</p></td></tr>
+        {% endfor %}
+
+
+    {% endif %}
+
+
+
+
+    {% if instructions %}
+        <tr><td><h2 class="green">Special Instructions</h2></td></tr>
+        {% for instruction in instructions %}
+        <tr><td><p>{{ instruction }}</p></td></tr>
+        {% endfor %}
+        
+    
+    {% else %}
+        <tr><td><h2 class="green">No instructions spesified</h2></td></tr>
+
+    {% endif %}
+
+
+    <tr><td><p>Name: {{name}}</p></td></tr>
+    <tr><td><p>Phone: {{phone}}</p></td></tr>
+    <tr><td><p>Email: {{email}}</p></td></tr>
+
+
+
+
+
+
+</table>
+
+
+{%endblock%}

@@ -1,0 +1,143 @@
+<!--restaurant/templates/restaurant/order.html-->
+
+{% extends 'restaurant/base.html' %}
+{%block content %}
+
+
+{%load static%}
+
+
+<form action="{% url 'confirmation' %}" method="POST">
+    {% csrf_token %}
+
+
+    <table>
+       
+    <tr>
+        <td>
+            <p class="green">Select your items:</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+    <input type="checkbox" id="GarlicNots" name="food1" value="GarlicNots">
+    <label for="GarlicNots"> Garlic Nots(10) : 9$</label><br>
+        </td>
+    </tr>
+        <tr>
+        <td>
+            <input type="checkbox" id="BreadSticks" name="food2" value="BreadSticks">
+    <label for="BreadSticks"> BreadSitcks(4) : $4</label><br>
+        </td>
+    </tr>
+        <tr>
+        <td>
+            <input type="checkbox" id="Cheese" name="food3" value="Cheese">
+            <label for="Cheese"> Cheese Pizza : $12</label>
+        </td>
+    </tr>
+        <tr>
+        <td>
+            <input type="checkbox" id="Pepperoni" name="food4" value="Pepperoni">
+            <label for="Pepperoni"> Pepperoni Pizza : $12</label>
+        </td>
+    </tr>
+      
+
+    <tr>
+        <td>
+            <p class="green">Toppings for Pizza:</p>
+        </td>
+    </tr>
+
+    </tr>
+        <tr>
+        <td>
+            <input type="checkbox" id="ExtraCheese" name="topping1" value="ExtraCheese">
+            <label for="ExtraCheese"> Extra Cheese : $1</label>
+        </td>
+    </tr>
+    </tr>
+        <tr>
+        <td>
+            <input type="checkbox" id="Mushrooms" name="topping2" value="Mushrooms">
+            <label for="Mushrooms"> Mushrooms : $1</label>
+        </td>
+    </tr>
+    </tr>
+        <tr>
+        <td>
+            <input type="checkbox" id="Onions" name="topping3" value="Onions">
+            <label for="Onions"> Onions : $1</label>
+        </td>
+    </tr>
+    </tr>
+        <tr>
+        <td>
+            <input type="checkbox" id="GreenPeppers" name="topping4" value="GreenPeppers">
+            <label for="GreenPeppers"> Green Peppers : $1</label>
+        </td>
+    </tr>
+
+
+</tr>
+
+<tr>
+    <td>
+        <p class="green">Daily Special:</p>
+    </td>
+</tr>
+<tr>
+    <td>
+<input type="checkbox" id="Special" name="special1" value="{{special}}">
+<label for="Special"> {{special}}</label><br>
+    </td>
+</tr>
+<tr>
+    <td>
+    <h2 class="green">Speical Instructions!!</h2>
+    <label class="textfeild" for="warmup">Plz include an allergies and preferences:</label>
+    <textarea id="warmup" rows="5" cols="100" name="Instructions">
+  
+    </textarea>
+</td>
+</tr>
+
+
+<tr>
+    <td>
+        <h2 class="green">Customer Infomation:</h2>
+    </td>
+    <td>
+        <label for="Name" class ="red">*Name:</label>
+    <input type="text" id="Name" name="Name" required="required">
+    </td>
+    <td>
+        <label for="Phone" class ="red">*Phone:</label>
+    <input type="text" id="Phone" name="Phone" required="required">
+    </td>
+    <td>
+        <label for="Email" class ="red">*Email:</label>
+    <input type="text" id="Email" name="Email" required="required">
+    </td>
+</tr>
+
+
+<tr>
+    <td>
+    <input type ="hidden" name="mailto" value="liaoju@bu.edu">
+    <input type="submit" value="Submit">
+    </td>
+</tr>
+    
+    </table>
+
+
+</form>
+
+
+
+
+
+
+{%endblock%}

@@ -1,0 +1,65 @@
+body {
+    background-color:  rgb(4, 30, 39);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family:Copperplate, Papyrus, fantasy;
+}
+
+h1,h2,h3,h4,h5,p{
+    color: white;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* for button color*/
+a, a:visited{
+    color:rgb(16, 211, 32);
+    text-decoration: none;
+}
+
+
+.header{
+    padding-top: 20px;
+    display:flex;
+    justify-content: center;
+
+}
+
+
+/* align buttons*/
+.buttons{
+    display:flex;
+    justify-content: center;
+
+}
+
+/*spacing between cells  */
+td{
+    padding:20px;
+
+}
+
+/* for labels to be white */
+label{
+    color:white;
+}
+
+/*for the img  */
+img {
+    width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto; 
+}
+
+/* color for spesific texts*/
+.green {
+    color:rgb(16, 211, 32);
+}
+
+/*color for spesific text */
+.red{
+    color:red;
+}
+

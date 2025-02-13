@@ -1,0 +1,61 @@
+
+<!--restaurant/templates/restaurant/base.html-->
+
+{% load static %}
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="{% static 'restaurant/styles.css' %}">
+    </head>
+    <body>
+        
+        
+        <h1 class = "header">Liao's Street Pizza</h1>
+        <nav class = "buttons">
+            <table>
+                <tr>
+                    <td>
+                        <a href="{% url 'main' %}">Main Page</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'order' %}">Order Page</a>
+                    </td>
+
+                
+               
+                </tr>
+            </table>
+        </nav>
+
+
+        {% block content %}
+        <table>
+            <tr >
+                <td>
+                    <p>Name: Liao's Street Pizza</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Location: 52 Newbury st, Boston , Ma , 02134</p>
+                </td>
+                <td>
+                    <p>Hours of operation: 9am- 9-pm</p>
+                </td>
+                <td>
+                </tr>
+                <tr>
+                    <img src="{% static 'images/' %}{{ pictures }}" alt="Description of the image"  width="600" 
+            height="auto">
+                </td>
+            </tr>
+        </table>
+
+
+    
+
+        
+        {%endblock%}
+       
+    </body>
+</html>

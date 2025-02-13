@@ -1,0 +1,36 @@
+<!--restaurant/templates/restaurant/main.html-->
+
+{% extends 'restaurant/base.html' %}
+{%block content %}
+
+
+{%load static%}
+
+<table>
+    <tr >
+        <td>
+            <p>Name: Liao's Street Pizza</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Location: 52 Newbury st, Boston , Ma , 02134</p>
+        </td>
+        <td>
+            <p>Hours of operation: 9am- 9-pm</p>
+        </td>
+        <td>
+        </tr>
+        <tr>
+            <img src="{% static 'images/' %}{{ pictures }}" alt="Description of the image"  width="600" 
+    height="auto">
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+
+{%endblock%}
