@@ -1,0 +1,55 @@
+
+<!--mini_fb/show_all_profiles.html-->
+
+{% extends 'mini_fb/base.html' %}
+
+{% block content %}
+
+
+
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Profile Picture</th>
+                <th>Name</th>
+                <th>City</th>
+            </tr>
+        </thead>
+    {% for p in profiles%}
+    <tr >
+    <div>
+        <td>
+        {% if p.image_url %}
+        <a href="{% url 'show_profile' p.pk %}">
+        <img src="{{p.image_url}}" alt="{{p.image_url}}" width="200" style="max-height: 400px;">
+        </a>
+        {% endif %}
+        </td>
+        <td>
+        {% if p.firstname and p.lastname%}
+        <a href="{% url 'show_profile' p.pk %}">
+            <h2>
+                {{p.firstname}} , {{p.lastname}}
+            </h2>
+        </a>
+        {% endif %}
+        </td>
+        <td>
+        <h3>
+             {{p.city}}
+        </h3>
+    </td>
+    </div>
+    </tr>
+    <tr>
+        <td><hr></td>
+        
+    </tr>
+
+    {%endfor%}
+    </table>
+</div>
+
+{% endblock %}

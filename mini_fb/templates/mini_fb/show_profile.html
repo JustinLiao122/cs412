@@ -1,0 +1,65 @@
+
+<!--mini_fb/show_profile.html-->
+
+
+{% extends 'mini_fb/base.html' %}
+
+{% block content %}
+
+
+
+<div>
+   
+    <div>
+        <!--creating table and formatting the data past form the views from the model into rows and cloumns-->
+        <table>
+            <tr>
+                <td>
+                    
+                    <img src="
+                    {{profile.image_url}}" alt="" width="400" style="max-height: 600px;">
+                </td>
+                <td>
+                    <h2>
+                        {{profile.firstname}} , {{profile.lastname}}
+                    </h2>
+                </td>
+                <td>
+                    <h3>
+                        {{profile.city}}
+                   </h3>
+                </td>
+
+            </tr>
+            <tr >
+                <td clospan="2">
+                    <hr>
+                </td>
+    
+            </tr>
+            <tr>
+                <td><p style="width: 800px;">{{profile.bios}}</p></td>
+            </tr>
+            
+
+
+
+
+
+
+
+
+
+        </table>
+       
+       
+        <p>
+            {{profile.email}}
+        </p>
+        
+    </div>
+    
+
+</div>
+
+{% endblock %}

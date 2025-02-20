@@ -1,0 +1,27 @@
+{%load static%}
+
+
+<html>
+    <head>
+        <title>Mini FB profiles</title>
+        <link rel="stylesheet" href="{% static 'mini_fb/styles.css' %}">
+
+
+    </head>
+    <body>
+        <head>
+            <h1>MiniFaceBook</h1>
+            <li><a href="{% url 'show_all_profiles' %}"><h2>All Profiles</h2></a></li>
+        </head>
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+
+
+
+    <footer>
+        <p>Created by: Justin Liao</p>
+    </footer>
+</html> 
