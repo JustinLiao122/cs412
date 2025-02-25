@@ -40,6 +40,29 @@
             <tr>
                 <td><p style="width: 800px;">{{profile.bios}}</p></td>
             </tr>
+            <tr >
+                <td clospan="2">
+                    <hr>
+                </td>
+    
+            </tr>
+
+            <tr>
+                <td>
+                     <li><a href="{% url 'create_status' profile.pk %}"><h2>Create Status</h2></a></li>
+                </td>
+            </tr>
+            {% for status in profile.get_status_messages%}
+            <tr>
+                <td>
+                    <p>{{status.message}}</p>
+                </td>
+                <td>
+                    <p>{{status.timestamp}}</p>
+                </td>
+            </tr>
+            {% endfor%}
+
             
 
 

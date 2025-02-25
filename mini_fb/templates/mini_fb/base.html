@@ -1,8 +1,11 @@
+<!--mini_fb/base.html-->
 {%load static%}
 
 
 <html>
     <head>
+        <!--title for all pages-->
+
         <title>Mini FB profiles</title>
         <link rel="stylesheet" href="{% static 'mini_fb/styles.css' %}">
 
@@ -11,7 +14,19 @@
     <body>
         <head>
             <h1>MiniFaceBook</h1>
-            <li><a href="{% url 'show_all_profiles' %}"><h2>All Profiles</h2></a></li>
+            <!--link to the url that links to the view that links to the model and the correct html file that displays all the profiles and one to the create form-->
+            <table>
+                <tr>
+                    <td>
+                        <li><a href="{% url 'show_all_profiles' %}"><h2>All Profiles</h2></a></li>
+
+                    </td>
+                    <td>
+                        <li><a href="{% url 'create_profile' %}"><h2>Create Profile</h2></a></li>
+
+                    </td>
+                </tr>
+            </table>
         </head>
 
         {% block content %}
