@@ -1,4 +1,6 @@
 <!--mini_fb/create_status_form.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 3/4/2025-->
+<!--Description: html form to display the create status form page-->
 {% extends 'mini_fb/base.html' %}
 
 {% block content %}
@@ -6,19 +8,34 @@
 
 <h2>Create StatusMessage</h2>
 
-<form method = 'POST'>
+ <!-- form that uses the attributes of model statusmessage  and allows for files that are images-->
+<form method = 'POST' enctype="multipart/form-data">
     {% csrf_token %}
    
     
     
     <table>
-        {{form.as_table}}
+        <tr>
+            {{form.as_table}}
+        </tr>
+       
+        <tr>
+            <td>
+                <!-- input for files that are images  -->
+                <label for="id_files"><p>Upload Images:</p></label>
+                <input type="file" name="files" id="id_files" multiple />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- Submit button for the form  -->
+                <input type="submit" name="submit" value="submit">
+            </td>
+        </tr>
     </table>
-    <!-- then show this version -->
     
-    <!-- talk about CSRF -->
-     <input type="submit" name="submit" value="submit">
-</form>
+     
+</form> 
 
 
 {% endblock %}

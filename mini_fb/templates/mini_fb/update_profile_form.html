@@ -1,0 +1,31 @@
+<!--mini_fb/update_profile_form.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 3/4/2025-->
+<!--Description: html form to display the update profile form page-->
+{% extends 'mini_fb/base.html' %}
+
+{% block content %}
+
+
+<h2>Update Profile</h2>
+
+ <!-- a link attached to a word that acts like a button which will redirect the user to the corresponding profile that the person was updating if they choose to cancel the update proccess -->
+<a href="{% url 'show_profile' profile.pk %}" >
+    <h2>
+        Cancel
+    </h2>
+</a>
+ <!-- form that uses the attributes of model Profile  -->
+<form action= "{% url 'update_profile' profile.pk %}" method = 'POST'>
+    {% csrf_token %}
+   
+    
+    
+    <table>
+        {{form.as_table}}
+    </table>
+    
+     <input type="submit" name="submit" value="submit">
+</form>
+
+
+{% endblock %}

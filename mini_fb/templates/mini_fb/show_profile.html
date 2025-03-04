@@ -1,11 +1,14 @@
 
 <!--mini_fb/show_profile.html-->
-
+<!--Author: Justin Liao (liaoju@bu.edu), 3/4/2025-->
+<!--Description: html form to display one spesific profile-->
 
 {% extends 'mini_fb/base.html' %}
 
 {% block content %}
 
+
+<li><a href="{% url 'update_profile' profile.pk %}"><h2>Update Profile</h2></a></li>
 
 
 <div>
@@ -51,17 +54,47 @@
                 <td>
                      <li><a href="{% url 'create_status' profile.pk %}"><h2>Create Status</h2></a></li>
                 </td>
+                
             </tr>
             {% for status in profile.get_status_messages%}
             <tr>
                 <td>
                     <p>{{status.message}}</p>
                 </td>
+                
                 <td>
                     <p>{{status.timestamp}}</p>
                 </td>
+
+                
+            </tr>
+             <!-- loop to loop through all the images that are attached to this status message and display the img  -->
+
+            <tr>
+                <td>
+                {% for img in status.get_images %}
+
+                  
+                <img src='{{img.imageField.url}}' alt='{{img.imageField.url}}'  width="200" style="max-height: 200px;">
+                    
+
+                {% endfor %}
+            </td>
+            </tr>
+            <tr>
+                <!-- two links one that redirctes the user to the delete_status_form.html thorgh the url and one that redirects to the update>status_form.html through the url  -->
+                <td>
+                    <li><a href="{% url 'delete_status' status.pk %}"><p>Delete</p></a></li>
+                </td>
+                <td>
+                    <li><a href="{% url 'update_status' status.pk %}"><p>Update</p></a></li>
+                </td>
+
             </tr>
             {% endfor%}
+
+
+            
 
             
 

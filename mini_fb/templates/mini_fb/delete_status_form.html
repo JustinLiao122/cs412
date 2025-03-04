@@ -1,0 +1,56 @@
+
+<!--mini_fb/delete_status_form.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 3/4/2025-->
+<!--Description: html form to display the delete status form page-->
+{% extends 'mini_fb/base.html' %}
+
+{% block content %}
+
+
+
+
+
+
+
+<table>
+    <tr>
+        <td>
+            <h2>Delete Status Message?</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                {{status.message}}
+            </p>
+        </td>
+       <td>
+        <p>
+            {{status.timestamp}}
+        </p>
+       </td>
+
+
+    </tr>
+    <tr>
+        <td>
+            <!-- form that sends a POST request to delete the status message-->
+            <form method = 'POST'>
+                {% csrf_token %}
+                <input type="submit" name="yes" value="yes">
+            </form>
+        </td>
+        <td>
+            <!-- form for the cancel button that sends a GET request to the correct url that corresponds to the profile that the status message is assoicated to-->
+            <form action= "{% url 'show_profile' status.profile.pk %}" method = 'GET'>
+                {% csrf_token %}
+                <input type="submit" name="no" value="no">
+            </form>
+        </td>
+    </tr>
+
+</table>
+
+
+
+{% endblock %}

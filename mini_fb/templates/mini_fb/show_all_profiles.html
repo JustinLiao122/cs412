@@ -1,6 +1,7 @@
 
 <!--mini_fb/show_all_profiles.html-->
-
+<!--Author: Justin Liao (liaoju@bu.edu), 3/4/2025-->
+<!--Description: html form to display all the profiles-->
 {% extends 'mini_fb/base.html' %}
 
 {% block content %}
@@ -10,6 +11,7 @@
 
 <div>
     <table>
+        <!--header for the columns for the table-->
         <thead>
             <tr>
                 <th>Profile Picture</th>
@@ -17,18 +19,24 @@
                 <th>City</th>
             </tr>
         </thead>
+
+    <!--loop interating through all the profiles given throught the context varaible profiles from the model to create a serpate row for each profile-->
     {% for p in profiles%}
     <tr >
     <div>
         <td>
+        <!--checks if there is a attribute image_url-->
         {% if p.image_url %}
+        <!--creating a clickable image that links to the coresponding profile that links to the url called show_profile which will link the the views that displays a detailed one html of that profile-->
         <a href="{% url 'show_profile' p.pk %}">
         <img src="{{p.image_url}}" alt="{{p.image_url}}" width="200" style="max-height: 400px;">
         </a>
         {% endif %}
         </td>
         <td>
+        <!--checks if there is a attribute first and last name-->
         {% if p.firstname and p.lastname%}
+        <!--creating a clickable text consisting of the first and last name that links to the coresponding profile that links to the url called show_profile which will link the the views that displays a detailed one html of that profile-->
         <a href="{% url 'show_profile' p.pk %}">
             <h2>
                 {{p.firstname}} , {{p.lastname}}
