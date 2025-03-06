@@ -1,0 +1,31 @@
+
+/*font and background color for entire web app*/
+
+body {
+    background-color:  rgb(4, 30, 39);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family:Copperplate, Papyrus, fantasy;
+}
+
+/*color for texts*/
+
+h1,h2,h3,h4,h5,p, th{
+    color: white;
+    font-weight: normal;
+    margin: 0;
+}
+
+/*add spacing between columns and a bit between rows*/
+td {
+    padding: 2px 15px; 
+}
+
+
+textarea {
+  width: 100%;   
+  height: 30px;           /* Make the field span full width */
+  box-sizing: border-box;   /* Ensure padding and border are included in the width */
+  font-size: 16px;          /* Increase font size for readability */
+}
