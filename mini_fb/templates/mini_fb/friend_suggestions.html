@@ -1,14 +1,18 @@
 
 
+<!--mini_fb/friend_suggestion.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 3/4/2025-->
+<!--Description: html form to display all the people this profile may know -->
 {%load static%}
 
 <html>
     <head>
         <link rel="stylesheet" href="{% static 'mini_fb/styles.css' %}">
         <h1>People {{profile.firstname}} {{profile.lastname}} may know</h1>
-
+    </html>
        
         <div>
+            <!--Table to display all the profiles that this profile may know and with each profile they are linked to there profile page and have a button that allows this profile to add them as a friend-->
             <table>
                 
             
@@ -51,5 +55,5 @@
 
 
 
-
+</html> 
 

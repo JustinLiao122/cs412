@@ -9,7 +9,8 @@
 
 
 <li><a href="{% url 'update_profile' profile.pk %}"><h2>Update Profile</h2></a></li>
-
+<!-- Button to call the url with this profile primary key to display the news_feed.html-->
+<li><a href="{% url 'news_feed' profile.pk %}"><h2>News Feed</h2></a></li>
 
 <div>
    
@@ -93,7 +94,8 @@
             </tr>
             {% endfor%}
 
-
+            <!-- created a row in the table where it will display all the firends of this profile added style so it columns dont match with the ones above and that if there is two 
+             many it will wrap below this row and continue also all images and names are links to corresponing profiles -->
             <tr>
                 <td colspan="3">
                   <div style="display: flex; flex-wrap: wrap;">
@@ -112,7 +114,7 @@
                   </div>
                 </td>
               </tr>
-              
+             <!-- Button to call the url with this profile primary key to display the friend_suggestions.html-->
               <tr>
                 <a href="{% url 'friend_suggestions' profile.pk %}">
                     <h2>

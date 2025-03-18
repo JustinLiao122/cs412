@@ -217,19 +217,24 @@ class UpdateStatusMessageView(UpdateView):
 
 
 class AddFriendView(View):
-
+    # a class that inherits from the generic superclass django.views.generic.View 
 
     def dispatch(self, request, *args, **kwargs):
+        # overriding the dispatch method by reading the URL parameters from kwargs we can take the two profiles 
+        # iven from the url and add them as frineds and return the user back to the profile it was on
 
+        #takes the profile pk from the url and stores them
         profile1_pk = self.kwargs.get('pk')
         profile2_pk = self.kwargs.get('other_pk')
 
+        #find the profile that is related to the given pks
         profile1 = Profile.objects.get(pk = profile1_pk)
         profile2 = Profile.objects.get(pk = profile2_pk)
 
+        #adding the two profiles as friends
         profile1.add_friend(profile2)
 
-
+        # returning user to orginal profile
         return redirect(reverse('show_profile', kwargs={'pk': profile1.pk}))
     
 
@@ -237,8 +242,20 @@ class AddFriendView(View):
 
 
 class ShowFriendSuggestionsView(DetailView):
-
+    # class that inhierts from the  DetailView and interactes with the model Profile rendering 
+    # the friend_suggestions.html and passes a context called profile
 
     template_name = "mini_fb/friend_suggestions.html"
+    model = Profile
+    context_object_name = 'profile'
+
+
+
+class ShowNewsFeedView(DeleteView):
+
+    # class that inhierts from the  DetailView and interactes with the model Profile rendering 
+    # the news_feed.html and passes a context called profile
+
+    template_name = "mini_fb/news_feed.html"
     model = Profile
     context_object_name = 'profile'

@@ -1,0 +1,64 @@
+
+
+<!--mini_fb/news_feed.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 3/4/2025-->
+<!--Description: html form to display the statusmessages of all the friends of a profile-->
+
+{%load static%}
+
+<html>
+    <head>
+
+        <title>Mini FB profiles</title>
+        <link rel="stylesheet" href="{% static 'mini_fb/styles.css' %}">
+    </head>
+
+
+    <!--Button to return to profile-->
+    <h2>{{profile.firstname}} {{profile.lastname}}'s News Feed</h2>
+    <li> <a href="{% url 'show_profile' profile.pk %}">
+        <h2>Return to Profile</h2>
+    </a></li>
+
+
+
+        <div>
+            <!--table to display all the statusmessages and status images and profile imgs that correspode to the friends of this profile-->
+            <table>
+                {% for status_message in profile.get_news_feed %}
+                    <tr>
+                        <td>
+                            <img src="{{ status_message.profile.image_url }}" alt="Profile Picture" width="100" style="max-height: 100px;">
+                        </td>
+                        <td>
+
+                            <p>{{status_message.message}}</p>
+                           
+                        </td>
+                        
+                        <td>
+                            <p>{{status_message.timestamp}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        {% for img in status_message.get_images %}
+                        <td>
+                  
+                        <img src='{{img.imageField.url}}' alt='{{img.imageField.url}}'  width="200" style="max-height: 200px;">
+                            
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                          <hr style="margin: 20px 0;">
+                        </td>
+                    </tr>
+
+
+                {%endfor%}
+            </table>
+        </div>
+
+
+</head>

@@ -29,9 +29,10 @@ class Profile(models.Model):
         return status_message
     
     def get_friends(self):
-
+        # gets all the friends for this spesific profile by using ORM to filter through the model object Friend in eathier profile1 or profile2
         friends = Friend.objects.filter(profile2 = self) | Friend.objects.filter(profile1 = self)
 
+        
         friend_profiles = []
         for friend in friends:
             if friend.profile1 == self:
@@ -42,15 +43,24 @@ class Profile(models.Model):
         return friend_profiles
     
     def add_friend(self, other):
-
+        #adds two profiles as friends if they are already not friends and the two profiles are not the same
         if self != other: 
             friends = self.get_friends()
             if other not in friends:
                 Friend.objects.create(profile1=self, profile2=other)
 
+    def get_news_feed(self):
+        #retrives all the statusmessages from the friends of a spesific profile and orders them by most recent
+
+        my_friends = self.get_friends()
+        return StatusMessage.objects.filter(profile__in=my_friends).order_by('-timestamp')
+
+
+
+
 
     def get_friend_suggestions(self):
-        
+        #this returns a list of suggested friends dervived from getting the friends of a profiles friend
         my_friends = self.get_friends()
         ##print("My_friends:" , my_friends)
         friends_of_friends = []
