@@ -94,6 +94,35 @@
             {% endfor%}
 
 
+            <tr>
+                <td colspan="3">
+                  <div style="display: flex; flex-wrap: wrap;">
+                    {% for friend in profile.get_friends %}
+                      <div style="flex: 0 0 20%; text-align: center; box-sizing: border-box; padding: 5px;">
+                        <a href="{% url 'show_profile' friend.pk %}">
+                          <img src="{{ friend.image_url }}" alt="{{ friend.image_url }}" width="200" style="max-height: 250px;">
+                        </a>
+                        {% if friend.firstname and friend.lastname %}
+                          <a href="{% url 'show_profile' friend.pk %}">
+                            <h2>{{ friend.firstname }} {{ friend.lastname }}</h2>
+                          </a>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  </div>
+                </td>
+              </tr>
+              
+              <tr>
+                <a href="{% url 'friend_suggestions' profile.pk %}">
+                    <h2>
+                       People you may know
+                    </h2>
+                </a>
+              </tr>
+              
+
+
             
 
             

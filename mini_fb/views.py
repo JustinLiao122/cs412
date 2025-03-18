@@ -3,8 +3,8 @@
 # Description: veiw functions/classes to control data flow between templates and model
 
 
-from django.shortcuts import render 
-from django.views.generic import ListView , DetailView ,CreateView ,UpdateView,DeleteView
+from django.shortcuts import render ,redirect
+from django.views.generic import ListView , DetailView ,CreateView ,UpdateView,DeleteView , View
 from django.urls import reverse
 
 # Create your views here.
@@ -209,3 +209,36 @@ class UpdateStatusMessageView(UpdateView):
         profile = status.profile
         # call reverse to generate the URL for this Profile with new message
         return reverse('show_profile', kwargs={'pk':profile.pk})
+    
+
+
+
+
+
+
+class AddFriendView(View):
+
+
+    def dispatch(self, request, *args, **kwargs):
+
+        profile1_pk = self.kwargs.get('pk')
+        profile2_pk = self.kwargs.get('other_pk')
+
+        profile1 = Profile.objects.get(pk = profile1_pk)
+        profile2 = Profile.objects.get(pk = profile2_pk)
+
+        profile1.add_friend(profile2)
+
+
+        return redirect(reverse('show_profile', kwargs={'pk': profile1.pk}))
+    
+
+
+
+
+class ShowFriendSuggestionsView(DetailView):
+
+
+    template_name = "mini_fb/friend_suggestions.html"
+    model = Profile
+    context_object_name = 'profile'

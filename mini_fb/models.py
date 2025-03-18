@@ -27,7 +27,44 @@ class Profile(models.Model):
 
         status_message = StatusMessage.objects.filter(profile=self).order_by('-timestamp')
         return status_message
+    
+    def get_friends(self):
 
+        friends = Friend.objects.filter(profile2 = self) | Friend.objects.filter(profile1 = self)
+
+        friend_profiles = []
+        for friend in friends:
+            if friend.profile1 == self:
+                friend_profiles.append(friend.profile2)
+            else:
+                friend_profiles.append(friend.profile1)
+
+        return friend_profiles
+    
+    def add_friend(self, other):
+
+        if self != other: 
+            friends = self.get_friends()
+            if other not in friends:
+                Friend.objects.create(profile1=self, profile2=other)
+
+
+    def get_friend_suggestions(self):
+        
+        my_friends = self.get_friends()
+        ##print("My_friends:" , my_friends)
+        friends_of_friends = []
+
+        for friend in my_friends:
+            temp_friends = friend.get_friends()
+            for f in temp_friends:
+                ##print("A friend of my friend:" , f)
+                
+                if f != self and f not in my_friends and f not in friends_of_friends:
+                    friends_of_friends.append(f)
+         
+
+        return friends_of_friends
 
     def __str__(self):
 
@@ -94,3 +131,21 @@ class StatusImage(models.Model):
     def __str__(self):
 
         return  f'{self.image} {self.statusMessage}'
+    
+
+
+
+
+class Friend(models.Model):
+    '''encapsulates the idea of an edge connecting two nodes within the social network'''
+
+    profile1 = models.ForeignKey("Profile", on_delete=models.CASCADE, related_name="profile1")
+    profile2 = models.ForeignKey("Profile", on_delete=models.CASCADE, related_name="profile2")
+    anniversary = models.DateTimeField(auto_now_add=True)
+
+
+
+
+
+    def __str__(self):
+        return f'{self.profile1} is friends with {self.profile2} starting this day: {self.anniversary}'
