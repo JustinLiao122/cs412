@@ -52,7 +52,8 @@ class Profile(models.Model):
     def get_news_feed(self):
         #retrives all the statusmessages from the friends of a spesific profile and orders them by most recent
 
-        my_friends = self.get_friends()
+        my_friends = list(self.get_friends())
+        my_friends.append(self)
         return StatusMessage.objects.filter(profile__in=my_friends).order_by('-timestamp')
 
 
