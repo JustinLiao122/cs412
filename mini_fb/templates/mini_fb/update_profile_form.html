@@ -15,7 +15,7 @@
     </h2>
 </a>
  <!-- form that uses the attributes of model Profile  -->
-<form action= "{% url 'update_profile' profile.pk %}" method = 'POST'>
+<form action= "{% url 'update_profile'  %}" method = 'POST'>
     {% csrf_token %}
    
     

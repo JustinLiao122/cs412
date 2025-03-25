@@ -21,7 +21,7 @@
                     <div style="display: flex; flex-wrap: wrap;">
                         {% for friend in profile.get_friend_suggestions %}
                         <div style="flex: 0 0 20%; text-align: center; box-sizing: border-box; padding: 5px;">
-                            <a href="{% url 'add_friend' profile.pk friend.pk %}">
+                            <a href="{% url 'add_friend'  friend.pk %}">
                             <h2>Add Friend</h2>
                             </a>
                             <a href="{% url 'show_profile' friend.pk %}">

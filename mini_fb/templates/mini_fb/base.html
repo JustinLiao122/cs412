@@ -23,9 +23,41 @@
                         <li><a href="{% url 'show_all_profiles' %}"><h2>All Profiles</h2></a></li>
 
                     </td>
+                   
                     <td>
+                        <!--only shows create profile if the user is not logged in as if they are logged in they should have a profile-->
+                        {% if request.user.is_authenticated %} 
+                        {% else %}
                         <li><a href="{% url 'create_profile' %}"><h2>Create Profile</h2></a></li>
 
+                        {% endif %}
+                   
+                    </td>
+                    
+                    
+                </tr>
+                <tr>
+                    <!--depending on if the user is logged in or out they will show the oppsite-->
+                    {% if request.user.is_authenticated %} 
+                    <form action="{% url 'logout' %}" method = "POST" >    
+                        {% csrf_token %}            
+                        
+                        <input type="submit" name="Logout" value="Logout">
+                    </form> 
+                    {% else %}
+                    <li><a href="{% url 'login' %}"><h2>Log in</h2></a></li>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>
+                        <h2>
+                        <!--information to show who is logged in-->
+                        {% if request.user.is_authenticated %}
+                        Logged in as:{{request.user}}
+                        {% else %}
+                        Not logged in.
+                        {% endif %}
+                    </h2>
                     </td>
                 </tr>
             </table>

@@ -7,11 +7,12 @@
 
 {% block content %}
 
+{% if request.user == profile.user %}
 
-<li><a href="{% url 'update_profile' profile.pk %}"><h2>Update Profile</h2></a></li>
+<li><a href="{% url 'update_profile'  %}"><h2>Update Profile</h2></a></li>
 <!-- Button to call the url with this profile primary key to display the news_feed.html-->
-<li><a href="{% url 'news_feed' profile.pk %}"><h2>News Feed</h2></a></li>
-
+<li><a href="{% url 'news_feed'  %}"><h2>News Feed</h2></a></li>
+{% endif %}
 <div>
    
     <div>
@@ -50,13 +51,15 @@
                 </td>
     
             </tr>
-
+                {% if request.user == profile.user %}
             <tr>
                 <td>
-                     <li><a href="{% url 'create_status' profile.pk %}"><h2>Create Status</h2></a></li>
+                     <li><a href="{% url 'create_status'  %}"><h2>Create Status</h2></a></li>
                 </td>
                 
             </tr>
+            {% endif %}
+          
             {% for status in profile.get_status_messages%}
             <tr>
                 <td>
@@ -84,13 +87,15 @@
             </tr>
             <tr>
                 <!-- two links one that redirctes the user to the delete_status_form.html thorgh the url and one that redirects to the update>status_form.html through the url  -->
+                {% if request.user == profile.user %}
+
                 <td>
                     <li><a href="{% url 'delete_status' status.pk %}"><p>Delete</p></a></li>
                 </td>
                 <td>
                     <li><a href="{% url 'update_status' status.pk %}"><p>Update</p></a></li>
                 </td>
-
+                {% endif %}
             </tr>
             {% endfor%}
 
@@ -116,11 +121,14 @@
               </tr>
              <!-- Button to call the url with this profile primary key to display the friend_suggestions.html-->
               <tr>
-                <a href="{% url 'friend_suggestions' profile.pk %}">
+                {% if request.user == profile.user %}
+
+                <a href="{% url 'friend_suggestions'  %}">
                     <h2>
                        People you may know
                     </h2>
                 </a>
+                {% endif %}
               </tr>
               
 

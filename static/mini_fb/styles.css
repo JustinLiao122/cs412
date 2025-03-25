@@ -29,3 +29,16 @@ textarea {
   box-sizing: border-box;   /* Ensure padding and border are included in the width */
   font-size: 16px;          /* Increase font size for readability */
 }
+.helptext, .errorlist {
+    color: white;         /* help text and errors */
+    font-size: 0.85em;
+}
+
+label {
+    color: white;
+}
+
+
+form {
+    color: white; /* Makes label and plain text white */
+}

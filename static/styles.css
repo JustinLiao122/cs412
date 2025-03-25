@@ -4,7 +4,7 @@ body {
     font-family:Copperplate, Papyrus, fantasy;
 }
 
-h1,h2,h3,h4,h5{
+h1,h2,h3,h4,h5,p{
     color: white;
     font-weight: normal;
     margin: 0;
@@ -15,5 +15,11 @@ a, a:visited{
     text-decoration: none;
 }
 
+.helptext, .errorlist {
+    color: white;         /* help text and errors */
+    font-size: 0.85em;
+}
 
-
+label {
+    color: white;
+}
