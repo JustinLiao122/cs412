@@ -12,6 +12,8 @@ from django.db.models.query import QuerySet
 from .models import*
 import plotly
 import plotly.graph_objs as go
+from django.db.models import Count
+
 
 #from .forms import CreateProfileForm ,CreateStatusMessageForm,UpdateProfileForm,UpdateStatusForm
 #from django.contrib.auth.mixins import LoginRequiredMixin 
@@ -215,10 +217,10 @@ class GraphBetailView(ListView):
 
 
             #getting the distinct values of the year field and then counting the number of voters in each year
+            years = (qs.filter(dob__year__gte=1920, dob__year__lte=2004).values('dob__year').annotate(count=Count('id')).order_by('dob__year'))
+            year_count = {year['dob__year']: year['count'] for year in years}
             x3 = list(range(1920, 2005))
-
-            y3 = [qs.filter(dob__year=year).count() for year in x3]
-
+            y3 = [year_count.get(year, 0) for year in x3]
 
             fig = go.Bar(x=x3, y=y3)
 
