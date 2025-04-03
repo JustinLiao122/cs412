@@ -1,0 +1,75 @@
+<!--voter_analytics/search.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/3/2025-->
+<!--Description: html form to display the form for filtering the voters extened to other htmls-->
+<h1>Search Form</h1>
+
+<table>
+<!-- For that can be used in both the voter_list and the graphs -->
+<!-- uses context varables to create the options for the dropdown menu and check boxs -->
+
+<form action="{{ request.path }}" method="get">
+
+    <tr>
+        <th>Party affiliation:</th>
+        <td>
+            <select name="party_affiliation">
+                <option value="">Select a party</option>
+                {% for party in partys %}
+                    <option value="{{ party }}">{{ party }}</option>
+                {% endfor %}
+            </select>
+    </td>
+    </tr>
+    <tr>
+        <th>Minimum date of birth:</th>
+        <td><select name="min_year">
+            <option value="">Select a year</option>
+            {% for year in years %}
+                <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+        <th>Maximum date of birth:</th>
+        <td><select name="max_year">
+            <option value="">Select a year</option>
+            {% for year in years %}
+                <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+        <th>Voter Score:</th>
+        <td><select name="Voter_Score">
+            <option value="">Select a score</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th>Whether they voted in specific elections:</th>
+        <td> 
+            <input type="checkbox" name="v20state" value="v20state" id="v20state">
+            <label for="v20state">v20state</label><br>
+            <input type="checkbox" name="v21town" value="v21town" id="v21town">
+            <label for="v21town">v21town</label><br>
+            <input type="checkbox" name="v21primary" value="v21primary" id="v21primary">
+            <label for="v21primary">v21primary</label><br>
+            <input type="checkbox" name="v22general" value="v22general" id="v22general">
+            <label for="v22general">v22general</label><br>
+            <input type="checkbox" name="v23town" value="v23town" id="v23town">
+            <label for="v23town">v23town</label>
+        </td>
+    </tr>
+    
+    <tr>
+        <td><input type="submit"></td>
+        <td></td>
+    </tr>
+    
+</form>
+</table>

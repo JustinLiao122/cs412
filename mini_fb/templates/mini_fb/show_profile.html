@@ -7,6 +7,8 @@
 
 {% block content %}
 
+<!--Only allow the user of this profile to update or change anything-->
+
 {% if request.user == profile.user %}
 
 <li><a href="{% url 'update_profile'  %}"><h2>Update Profile</h2></a></li>
@@ -86,6 +88,7 @@
             </td>
             </tr>
             <tr>
+                <!--Only allow the user of this profile to update or change anything-->
                 <!-- two links one that redirctes the user to the delete_status_form.html thorgh the url and one that redirects to the update>status_form.html through the url  -->
                 {% if request.user == profile.user %}
 
@@ -121,6 +124,7 @@
               </tr>
              <!-- Button to call the url with this profile primary key to display the friend_suggestions.html-->
               <tr>
+                <!--Only allow the user of this profile to update or change anything-->
                 {% if request.user == profile.user %}
 
                 <a href="{% url 'friend_suggestions'  %}">

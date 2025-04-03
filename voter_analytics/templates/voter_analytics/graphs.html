@@ -1,0 +1,46 @@
+<!--voter_analytics/graph.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/3/2025-->
+<!--Description: html form to display the graphs of the filtered voters-->
+{% extends 'voter_analytics/base.html' %}
+
+
+{% block content %}
+
+<div class="row">
+    {% include "voter_analytics/search.html" %}    
+</div>
+
+
+<div class="container">
+
+
+    <div class="row">
+        <!-- safe: render the HTML rather than display the HTML as text -->
+        {{ByYear|safe}} 
+    </div>
+    <div class="row">
+        <!-- safe: render the HTML rather than display the HTML as text -->
+        {{ByParty|safe}} 
+    </div>
+
+    <div class="row">
+        <!-- safe: render the HTML rather than display the HTML as text -->
+        {{ByElections|safe}} 
+    </div>
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

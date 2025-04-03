@@ -1,0 +1,41 @@
+<!--voter_analytics/base.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/3/2025-->
+<!--Description: html form to display the base page that gets interited form other html-->
+{%load static%}
+
+
+<html>
+    <head>
+        <!--title for all pages-->
+
+        <h1>Voter Analytics</h1>
+        <link rel="stylesheet" href="{% static 'mini_fb/styles.css' %}">
+
+
+    </head>
+    <body>
+        <table>
+            <tr>
+                <!-- Links between the Voterlist and the graph -->
+
+                <td>
+                    <li><a href="{% url 'voters' %}"><h3>Show Voter List</h3></a></li>
+                </td>
+                <td>
+                    <li><a href="{% url 'graph' %}"><h3>Graph</h3></a></li>
+                </td>
+            </tr>
+        </table>
+
+        
+        {% block content %}
+        {% endblock %}
+
+    </body>
+
+
+
+    <footer>
+        <p>Created by: Justin Liao</p>
+    </footer>
+</html> 

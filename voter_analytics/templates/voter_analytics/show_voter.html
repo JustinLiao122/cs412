@@ -1,0 +1,85 @@
+<!--voter_analytics/show_voter.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/3/2025-->
+<!--Description: html form to display a single voter-->
+{% extends 'voter_analytics/base.html' %}
+
+
+{% block content %}
+
+
+<h2>Voter Detail</h2>
+
+<table>
+    
+    <!-- Shows all the details of a voter -->
+
+    <tr>
+        <td><p>Name:</p></td>
+        <td><p>{{voter.first_name}} {{voter.last_name}}</p></td>
+    </tr>
+
+    <tr>
+        <td><p>Address:</p></td>
+        <td> <a href="https://www.google.com/maps/search/?api=1&query={{voter.street_number}}+{{ voter.street_name}}+{{voter.apartment_number}}+{{voter.zip_code|urlencode }}" target="_blank">
+            {{voter.street_number}} {{voter.street_name}} {{voter.apartment_number}} {{voter.zip_code}}
+        </a></td>
+    </tr>
+
+    <tr>
+        <td><p>Date of Birth:</p></td>
+        <td><p>{{voter.dob}}</p></td>
+    </tr>
+
+    <tr>
+        <td><p>Date of Registration:</p></td>
+        <td><p>{{voter.dor}}</p></td>
+    </tr>
+
+    <tr>
+        <td><p>Party Affiliation:</p></td>
+        <td><p>{{voter.party}}</p></td>
+    </tr>
+
+    <tr>
+        <td><p>Voter Score:</p></td>
+        <td><p>{{voter.score}}</p></td>
+    </tr>
+
+
+    <tr>
+        <td><p>Voted in v20state:</p></td>
+        <td><p>{{voter.v20state}}</p></td>
+    </tr>
+    <tr>
+        <td><p>Voted in v21town:</p></td>
+        <td><p>{{voter.v21town}}</p></td>
+    </tr>
+    <tr>
+        <td><p>Voted in v21primary:</p></td>
+        <td><p>{{voter.v21primary}}</p></td>
+    </tr>
+    <tr>
+        <td><p>Voted in v22general:</p></td>
+        <td><p>{{voter.v22general}}</p></td>
+    </tr>
+    <tr>
+        <td><p>Voted in v23town:</p></td>
+        <td><p>{{voter.v23town}}</p></td>
+    </tr>
+    
+
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+{% endblock %}

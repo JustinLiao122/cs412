@@ -1,0 +1,74 @@
+<!--voter_analytics/voter_list.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/3/2025-->
+<!--Description: html form to display a page with all voters with the filter from the form-->
+{% extends 'voter_analytics/base.html' %}
+
+
+{% block content %}
+<h2>List of Voters</h2>
+<div class="container">
+
+    <div class="row">
+        {% include "voter_analytics/search.html" %}    
+    </div>
+
+    <!-- navigation links for different pages of results -->
+    <div class="row">
+        {% if is_paginated %}
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li>
+                    <span><a href="?page={{ page_obj.previous_page_number }}"><p>Previous</p></a></span>
+                
+                </li>
+            {% endif %}
+                <li class="">
+                    <span><p>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</p></span>
+                </li>
+            {% if page_obj.has_next %}
+                <li>
+                    <span><a href="?page={{ page_obj.next_page_number }}"><p>Next</p></a></span>
+                </li>
+            {% endif %}
+            </ul>
+        {% endif %}
+    </div>
+    
+	<!-- table of results -->
+    <div class="row">
+        <table>
+            <tr>
+                <th>Name</th>
+           
+                <th>Street Address</th>
+                <th>Dob</th>
+                <th>Party</th>
+                
+                <th>Score</th>
+                
+            </tr>
+    
+            {% for v in voters %}
+            <tr>
+                
+                <td><a href="{% url 'voter' v.pk %}">
+                    <p>
+                        {{v.first_name}} {{v.last_name}}
+                    </p>
+                </a></td>
+                
+                <td><p>{{v.street_number}} {{v.street_name}}  {{v.apartment_number}}  {{v.zip_code}}</p></td>
+            
+                <td><p>{{v.dob}}</p></td>
+                <td><p>{{v.party}}</p></td>
+                
+                <td><p>{{v.score}}</p></td>
+                
+             
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>    
+{% endblock %}
