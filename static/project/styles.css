@@ -1,0 +1,89 @@
+
+/*font and background color for entire web app*/
+
+body {
+    background-color:  rgb(4, 30, 39);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family:Copperplate, Papyrus, fantasy;
+}
+
+/*color for texts*/
+
+h1,h2,h3,h4,h5,p, th{
+    color: white;
+    font-weight: normal;
+    margin: 0;
+}
+
+/*add spacing between columns and a bit between rows*/
+td {
+    padding: 2px 15px; 
+}
+
+
+textarea {
+  width: 100%;   
+  height: 30px;           /* Make the field span full width */
+  box-sizing: border-box;   /* Ensure padding and border are included in the width */
+  font-size: 16px;          /* Increase font size for readability */
+}
+
+
+
+.helptext, .errorlist {
+    color: white;         
+    font-size: 0.85em;
+}
+
+label {
+    color: white;
+}
+
+
+form {
+    color: white; 
+}
+
+
+
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+  }
+  
+  .dropdown-button {
+    padding: 8px 12px;
+    background-color: #eee;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-menu a,
+  .dropdown-user {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #f0f0f0;
+  }
+  

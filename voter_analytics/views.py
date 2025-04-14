@@ -165,7 +165,6 @@ class GraphBetailView(ListView):
         return results
 
 
-
     def get_context_data(self, **kwargs):
             #This method passes context varables that are graphs for the template to display
             # calling the superclass method

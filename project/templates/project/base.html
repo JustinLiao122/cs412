@@ -1,0 +1,66 @@
+
+
+<!--voter_analytics/base.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/3/2025-->
+<!--Description: html form to display the base page that gets interited form other html-->
+{%load static%}
+
+
+<html>
+    <head>
+        <!--title for all pages-->
+
+        <h1>Project</h1>
+        <link rel="stylesheet" href="{% static 'project/styles.css' %}">
+
+
+    </head>
+    
+      
+    <body>
+        <div class="dropdown-container">
+            <button onclick="toggleDropdown()" class="dropdown-button">☰ Menu</button>
+            <div id="userDropdown" class="dropdown-menu">
+            {% if request.user.is_authenticated %} 
+              <div class="dropdown-user">👤 {{ request.user.username }}</div>
+              <form action="{% url 'Logout' %}" method = "POST" >    
+                {% csrf_token %}            
+                
+                <input type="submit" name="Logout" value="Logout">
+                </form> 
+            <a href="{% url 'shop' %}">🛒 Shop</a>
+              <a href="{% url 'Cart' %}">🛒 Cart</a>
+              <a href="{% url 'PastOrders' %}">📦 Past Orders</a>
+            {% else%}
+            <a href="{% url 'Login' %}">Log in</a>
+            {% endif %}
+            </div>
+          </div>
+        
+        {% block content %}
+        {% endblock %}
+
+    </body>
+
+
+
+    <footer>
+        <p>Created by: Justin Liao</p>
+    </footer>
+
+    <script>
+        function toggleDropdown() {
+          var dropdown = document.getElementById("userDropdown");
+          dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+      
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropdown-button')) {
+            var dropdown = document.getElementById("userDropdown");
+            if (dropdown && dropdown.style.display === "block") {
+              dropdown.style.display = "none";
+            }
+          }
+        };
+      </script>
+</html> 

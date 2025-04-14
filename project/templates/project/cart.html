@@ -1,0 +1,69 @@
+
+
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+
+<h2>🛒 Current Cart #{{ cart.id }}</h2>
+<table>
+    <tr>
+        {% if inactive_carts %}
+            {% for inactive_cart in inactive_carts %}
+            <td>
+                <form action="{% url 'switch_to_cart' inactive_cart.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">🛒 Cart #{{ inactive_cart.id }}</button>
+                </form>
+            </td>
+            {% endfor %}
+        {% endif %}
+    </tr>
+</table>
+<table>
+
+   
+
+    
+    {% if cart_items %}
+  
+    {% for item in cart_items %}
+    <tr>
+      <td><p>{{ item.item.name }} — Quantity: {{ item.quantity }}</p></td>
+      <td><form action="{% url 'remove_from_cart' item.item.id cart.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Remove</button>
+    </form></td>
+    </tr>
+    {% endfor %}
+
+{% else %}
+<tr>
+<td>
+    <p>Your cart is empty.</p>
+</td>
+</tr>
+{% endif %}
+    
+
+
+    
+
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

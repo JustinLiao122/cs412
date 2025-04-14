@@ -1,0 +1,44 @@
+{% extends 'project/base.html' %}
+
+
+{% block content %}
+
+
+
+
+<div class="row">
+
+    <div class="row">
+        {% include "project/search.html" %}    
+    </div>
+    <table>
+        <tr>
+            <th>Name</th>
+       
+           
+            <th>Price</th>
+            <th>Cart</th>
+        </tr>
+
+        {% for item in items %}
+        <tr>
+            
+            <td><p>{{item.name}}</p></td>
+            
+            <td><p>{{item.price}}</p></td>
+        
+            <td><form action="{% url 'AddToCart' item.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Add to Cart</button>
+            </form></td>
+         
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+
+
+{% endblock %}
