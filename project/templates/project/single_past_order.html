@@ -1,0 +1,56 @@
+
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+
+
+
+
+<table>
+    <tr>
+        <td>
+            <p>Customer: {{order.customer}}</p>
+        </td>
+        <td>
+            <p>Total Price: {{order.total_price}}</p>
+        </td>
+    </tr>
+</table>
+
+{% for store, aisles in order.routes.items %}
+<table>
+    <tr>
+        <td>
+            <p>Store: {{store}}</p>
+        </td>
+        <td>
+            <p>List of aisle and items to go to by order</p>
+        </td>
+    </tr>
+    {% for aisle, items in aisles.items %}
+    <tr>
+        <td>
+            <p>Aisle: {{aisle}}</p>
+        </td>
+        {% for item in items %}
+        <td>
+            <p>
+                {{ item}} 
+            </p>
+        </td>
+        {% endfor %}
+        
+ 
+        {% endfor %}
+    </tr>
+</table>
+
+
+
+
+{% endfor %}
+
+
+
+{% endblock %}

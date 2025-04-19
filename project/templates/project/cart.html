@@ -4,8 +4,8 @@
 
 {% block content %}
 
-
-<h2>🛒 Current Cart #{{ cart.id }}</h2>
+{% if cart %}
+<h2>🛒 Current Cart {{ cart.name }}</h2>
 <table>
     <tr>
         {% if inactive_carts %}
@@ -13,13 +13,26 @@
             <td>
                 <form action="{% url 'switch_to_cart' inactive_cart.id %}" method="post">
                     {% csrf_token %}
-                    <button type="submit">🛒 Cart #{{ inactive_cart.id }}</button>
+                    <button type="submit">🛒 Cart {{ inactive_cart.name }}</button>
                 </form>
             </td>
             {% endfor %}
         {% endif %}
+        
+    </tr>
+   
+</table>
+{% endif %}
+<table>
+    <tr>
+        <td>
+            
+            <a href="{% url 'CreateCart' %}"><P>🛒 Create Cart</P></a>
+        </td>
     </tr>
 </table>
+{% if cart %}
+
 <table>
 
    
@@ -44,19 +57,25 @@
 </td>
 </tr>
 {% endif %}
+
+
+<tr>
+    <td>
+        <form action="{% url 'OrderDetail' cart.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Order Detail</button>
+    </form>
+    </td>
+    <td>
+        <a href="{% url 'DeleteCart' cart.id %}"><P>🛒Delete Cart</P></a>
+    </td>
+</tr>
+
     
-
-
-    
-
-
-
-
-
 
 
 </table>
-
+{% endif %}
 
 
 

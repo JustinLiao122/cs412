@@ -1,1 +1,6 @@
 https://cs-webapps.bu.edu/liaoju/mini_fb/
+
+from project.models import* 
+store = Store.objects.first()
+aisles_to_visit = ["Fruits", "Meats", "Candy"  , "Chips", "Asian", "Pasta"]
+route = store.best_route(aisles_to_visit, "Main", "SelfCheckout")

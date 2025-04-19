@@ -13,6 +13,4 @@ urlpatterns = [
     path(r'voter/<int:pk>', views.VoterDetailView.as_view(), name='voter'),
     path(r'graphs', views.GraphBetailView.as_view(), name='graph'),
 
-
-
 ]

@@ -1,0 +1,83 @@
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+
+
+<table>
+
+    
+    {% if past_order %}
+    <tr>
+        <th>
+            <p>Ordered on: </p>
+        </th>
+        <th>
+            <p>Total price: </p>
+        </th>
+        <th>
+            <p>
+                Items orderd: 
+            </p>
+        </th>
+
+    </tr>
+    {% for order in past_order %}
+        <tr>
+            <td>
+                <p>{{order.timestamp}}</p>
+            </td>
+            <td>
+                <p>{{order.total_price}}</p>
+            </td>
+            <td>
+                <p>{{order.items}}</p>
+            </td>
+        </tr>
+    {% endfor %}
+    {% else %}
+        <tr>
+            <p>No Past Orders</p>
+        </tr>
+    {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

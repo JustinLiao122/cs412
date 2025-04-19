@@ -1,1 +1,136 @@
 https://cs-webapps.bu.edu/liaoju/voter_analytics/
+
+{
+    "Main": {
+        "Fruits": 2,
+        "Meats": 5,
+        "Candy": 6,
+        "Pasta": 5,
+        "Asian": 6,
+        "Chips": 7,
+        "Dairy": 9,
+        "SelfCheckout": 2,
+        "Household": 9,
+        "Back": 6
+    },
+    "Fruits": {
+        "Main": 2,
+        "Meats": 3,
+        "Candy": 4,
+        "Pasta": 3,
+        "Asian": 4,
+        "Chips": 5,
+        "Dairy": 7,
+        "SelfCheckout": 2,
+        "Household": 7,
+        "Back": 6
+    },
+    "Meats": {
+        "Main": 5,
+        "Fruits": 3,
+        "Candy": 5,
+        "Pasta": 2,
+        "Asian": 3,
+        "Chips": 4,
+        "Dairy": 4,
+        "SelfCheckout": 5,
+        "Household": 6,
+        "Back": 9
+    },
+    "Candy": {
+        "Main": 6,
+        "Fruits": 4,
+        "Meats": 5,
+        "Pasta": 3,
+        "Asian": 2,
+        "Chips": 1,
+        "Dairy": 3,
+        "SelfCheckout": 4,
+        "Household": 3,
+        "Back": 4
+    },
+    "Pasta": {
+        "Main": 5,
+        "Fruits": 3,
+        "Meats": 2,
+        "Candy": 3,
+        "Asian": 1,
+        "Chips": 2,
+        "Dairy": 4,
+        "SelfCheckout": 3,
+        "Household": 4,
+        "Back": 7
+    },
+    "Asian": {
+        "Main": 6,
+        "Fruits": 4,
+        "Meats": 3,
+        "Candy": 2,
+        "Pasta": 1,
+        "Chips": 1,
+        "Dairy": 3,
+        "SelfCheckout": 4,
+        "Household": 3,
+        "Back": 6
+    },
+    "Chips": {
+        "Main": 7,
+        "Fruits": 5,
+        "Meats": 4,
+        "Candy": 1,
+        "Pasta": 2,
+        "Asian": 1,
+        "Dairy": 2,
+        "SelfCheckout": 5,
+        "Household": 2,
+        "Back": 5
+    },
+    "Dairy": {
+        "Main": 9,
+        "Fruits": 7,
+        "Meats": 4,
+        "Candy": 3,
+        "Pasta": 4,
+        "Asian": 3,
+        "Chips": 2,
+        "SelfCheckout": 7,
+        "Household": 2,
+        "Back": 5
+    },
+    "SelfCheckout": {
+        "Main": 2,
+        "Fruits": 2,
+        "Meats": 5,
+        "Candy": 4,
+        "Pasta": 3,
+        "Asian": 4,
+        "Chips": 5,
+        "Dairy": 7,
+        "Household": 7,
+        "Back": 4
+    },
+    "Household": {
+        "Main": 9,
+        "Fruits": 7,
+        "Meats": 6,
+        "Candy": 3,
+        "Pasta": 4,
+        "Asian": 3,
+        "Chips": 2,
+        "Dairy": 2,
+        "SelfCheckout": 7,
+        "Back": 3
+    },
+    "Back": {
+        "Main": 6,
+        "Fruits": 6,
+        "Meats": 9,
+        "Candy": 4,
+        "Pasta": 7,
+        "Asian": 6,
+        "Chips": 5,
+        "Dairy": 5,
+        "SelfCheckout": 4,
+        "Household": 3
+    }
+}
