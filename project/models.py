@@ -93,7 +93,7 @@ class Store(models.Model):
         copy_aisle = set(aisle_to_visit)
         distance = self.aisle_distances
         current = start
-
+        route.append(start)
         while(len(copy_aisle) > 0):
             best_cost = float('inf')
             best_next = ""
@@ -112,7 +112,7 @@ class Store(models.Model):
 
 
         
-
+        route.append(end)
         return route
 
 

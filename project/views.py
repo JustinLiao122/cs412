@@ -166,7 +166,10 @@ def best_route( items, start, end ):
                 #will implment later down the line if I include other stores besides star market as star only has 20 total aisle and dont think users will be needing to vissit all 20 for now
                 route = store.A_star_method( aisle_to_visit, start, end )
             for aisle in route: 
-                store_aisle_items[aisle] = store_items[store][aisle]
+                if aisle == start or aisle == end: 
+                    store_aisle_items[aisle] = []
+                else:
+                    store_aisle_items[aisle] = store_items[store][aisle]
             routes_by_store[str(store)] = store_aisle_items
             
         return routes_by_store
@@ -193,7 +196,7 @@ class orderDetail(View):
                              total_price = total_price,
                               items =items,
                               cart = cart,
-                             routes=routes
+                             routes={"full": routes}
                                )
         
         pastOrder.save()
@@ -324,15 +327,136 @@ class SinglePastOrder(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         order = self.get_object()
-        cart_items = CartItem.objects.filter(cart=order.cart)
+        
+        grid = [[-1,"Meats",-1,-1,-1,"Dairy", -1],
+        [-1,-1,"Pasta","Asian","Chips",-1, "Household"],
+        [-1,-1,-1,-1,"Candy",-1,-1],
+        [-1,"Fruits", -1,-1,-1,-1,-1],
+        ["Main",-1,"SelfCheckout", -1,-1,-1,"Back"]]
 
-        items_by_aisle = {}
-        for cart_item in cart_items:
-            aisle = cart_item.item.aisle
-            if aisle not in items_by_aisle:
-                items_by_aisle[aisle] = []
-            items_by_aisle[aisle].append(cart_item.item)
+        
 
-        context["items_by_aisle"] = items_by_aisle
+        context["selected_route_name"] = "full"
+        context["selected_route"] = order.routes["full"]
+        if "splits" in order.routes:
+            context["selected_route"] = order.routes["splits"]["route1"]
 
+            if 'selected_route' in self.request.GET:
+                    selected_route = self.request.GET['selected_route']
+                    if selected_route and selected_route != "full":
+                        context["selected_route_name"] = selected_route
+                        context["selected_route"] = order.routes["splits"][selected_route]
+
+
+        store_name = list(context["selected_route"].keys())[0]
+        aisles = list(context["selected_route"][store_name].keys())
+
+        context["layout"] = grid
+        context["route"] = aisles
         return context
+    
+
+    def post(self, request, *args, **kwargs):   
+        if request.path.endswith("switchstart/"):
+            order = self.get_object()
+            selected_route  = order.routes["full"]
+            if "splits" in order.routes:
+                selected_route = order.routes["splits"]["route1"]
+                if "selected_route" in request.GET:
+                    selected_route_name = self.request.GET['selected_route']
+                    if selected_route_name and selected_route_name != "full":
+                        selected_route =  order.routes["splits"][request.GET["selected_route"]]
+
+
+            if 'start' in self.request.GET:
+                start= self.request.GET['start']
+                if start:
+                    
+
+                    list_items = []
+                    for aisle in selected_route.values(): 
+                        for item in aisle.values():
+                            list_items.extend(item)
+
+                    list_items = list(Item.objects.filter(name__in=list_items))
+                    routes = best_route(list_items , start , "SelfCheckout")
+                    if "splits" in order.routes and "selected_route" in request.GET:
+                        order.routes["splits"][request.GET["selected_route"]] = routes
+                    else:
+                        order.routes["full"] = routes
+                    order.save()
+                    return redirect("PastOrder", pk=order.pk)
+        
+        return super().post(request, *args, **kwargs)
+
+
+
+
+
+
+
+
+
+def backtracking(items, num_splits):
+
+    return
+
+
+def kk(items, num_splits):
+    routes = routes = [[] for _ in range(num_splits)]
+    total_price = [0]*num_splits
+    sorted_items = sorted(items, key=lambda x: x.price, reverse=True)
+
+    for item in sorted_items: 
+        index = total_price.index(min(total_price))
+        routes[index].append(item)
+        total_price[index]+= item.price
+
+    return routes
+
+def split_by_price(items , num_splits):
+    if len(items) <= 15 and num_splits <=4:
+        return kk(items, num_splits)
+       #return   backtracking(items, num_splits)
+    else:
+        return kk(items, num_splits)
+    
+
+    
+
+
+
+
+class SplitRouteView(View):
+
+    def post(self, request, pk):
+        order = PastOrder.objects.get(pk = pk)
+        if 'num_splits' in self.request.POST:
+            num_splits = int(self.request.POST['num_splits'])
+            if num_splits :
+
+                if num_splits == 1:
+                    order.routes.pop("splits", None)  
+                    order.save()
+                    return redirect("PastOrder", pk=order.pk)
+                cart_items = CartItem.objects.filter(cart=order.cart)
+                items = []
+                for cart_item in cart_items: 
+                    for _ in range(cart_item.quantity):
+                        items.append(cart_item.item)
+
+                split_routes = split_by_price(items, num_splits)
+
+                ordered_routes = {}
+
+                for number , list_items in enumerate(split_routes):
+                    ordered_routes[f"route{number+1}"] = best_route(list_items , "Main" , "SelfCheckout")
+
+
+                order.routes["splits"] = ordered_routes
+                order.save()
+
+        
+       
+              
+        return redirect("PastOrder", pk=order.pk)

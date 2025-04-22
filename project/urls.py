@@ -23,7 +23,11 @@ urlpatterns = [
     path('PastOrders/', views.PastOrders.as_view() , name= 'PastOrders'),
     path('CreateCart/', views.CreateCart.as_view() , name= 'CreateCart'),
     path('DeleteCart/<int:pk>/', views.DeleteCart.as_view() , name= 'DeleteCart'),
-    path('PastOrder/<int:pk>/' , views.SinglePastOrder.as_view() , name= 'PastOrder')
+    path('PastOrder/<int:pk>/' , views.SinglePastOrder.as_view() , name= 'PastOrder'),
+    path('PastOrder/<int:pk>/switchstart/', views.SinglePastOrder.as_view(), name='SwitchStart'),
+    path("PastOrder/<int:pk>/SplitRoute/", views.SplitRouteView.as_view(), name="SplitRoute"),
+
+
 
 ]
 

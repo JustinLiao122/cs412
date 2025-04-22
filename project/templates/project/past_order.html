@@ -33,6 +33,11 @@
             <td>
                 <p>{{order.items}}</p>
             </td>
+            <td>
+                <p>
+                    <a href="{% url 'PastOrder' order.pk %}">View</a>
+                </p>
+            </td>
         </tr>
     {% endfor %}
     {% else %}

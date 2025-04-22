@@ -15,10 +15,35 @@
         <td>
             <p>Total Price: {{order.total_price}}</p>
         </td>
+        <td>
+            <form action="{% url 'SplitRoute' order.id %}" method="POST">
+                {% csrf_token %}
+                <label for="num_splits"><p>Split between how many people?</p></label>
+                <input type="number" name="num_splits" min="1" max="10" required>
+                <button type="submit">Split</button>
+              </form>
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        {% if "splits" in order.routes %}
+        {% for route, store in order.routes.splits.items %}
+        <td>
+            <form action="{% url 'PastOrder' order.id %}" method="GET">
+                {% csrf_token %}
+                <input type="hidden" name="selected_route" value="{{ route }}">
+                <button type="submit">
+                  {{ route|capfirst }}
+                </button>
+              </form>
+        </td>
+        {% endfor %}
+        {% endif %}
     </tr>
 </table>
 
-{% for store, aisles in order.routes.items %}
+{% for store, aisles in selected_route.items %}
 <table>
     <tr>
         <td>
@@ -45,12 +70,100 @@
         {% endfor %}
     </tr>
 </table>
+<!--converts my context variables into valid json so I can use in javascript with d3-->
+{{ layout|json_script:"layout-data" }}
+{{ route|json_script:"route-data" }}
 
+<!--this is where 3d will put the map and I can define the hiehgt and weidth-->
+<svg id="storeMap" width="800" height="600"></svg>
 
-
-
+<!--d3 library -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
 {% endfor %}
+<script>
+    const SwitchStart = "{% url 'SwitchStart' order.id %}";
+    const PastOrder = "{% url 'PastOrder' order.id %}";
+    const selectedRoute = "{{ selected_route_name }}";
 
+    function getCSRFToken() {
+    const cookie = document.cookie
+        .split("; ")
+        .find(row => row.startsWith("csrftoken="));
+    return cookie ? cookie.split("=")[1] : "";
+    }
+    // converts the context varaibel from json back to arrays for javascript this is needed since django defualt passed stirngs with single quote which breaks in javascript 
+    const storeLayout = JSON.parse(document.getElementById('layout-data').textContent);
+    const route = JSON.parse(document.getElementById('route-data').textContent);
 
+    //intilazing the picture/map plus the dict for corrdinates
+    const cellSize = 80;
+    const svg = d3.select("#storeMap");
+    const aisleCoords = {};  
+  
+    storeLayout.forEach((row, y) => {
+      row.forEach((cell, x) => {
+        const px = x * cellSize;
+        const py = y * cellSize;
+  
+        // draw the grid cell
+        svg.append("rect")
+          .attr("x", px)
+          .attr("y", py)
+          .attr("width", cellSize)
+          .attr("height", cellSize)
+          .attr("fill", cell === -1 ? "#f3f4f6" : "#e0f2fe")
+          .attr("stroke", "#ccc");
+  
+        if (cell !== -1) {
+          aisleCoords[cell] = [x, y];
+  
+          const circle = svg.append("circle")
+            .attr("cx", px + cellSize / 2)
+            .attr("cy", py + cellSize / 2)
+            .attr("r", 20)
+            .attr("fill", route.includes(cell) ? "#007bff" : "#6b7280");
+
+            if (cell === "Main" || cell === "Back") {
+            circle
+                .style("cursor", "pointer")
+                .attr("fill", "#14532d")  
+                .on("click", () => {
+                fetch(`${SwitchStart}?start=${cell}&selected_route=${selectedRoute}`, {
+                    method: "POST",
+                    headers: {
+                    "X-CSRFToken": getCSRFToken()
+                    }
+                }).then(() => {
+                    window.location.href =  `${PastOrder}?selected_route=${selectedRoute}`;
+                });
+                });
+            }
+  
+          svg.append("text")
+            .attr("x", px + cellSize / 2)
+            .attr("y", py + cellSize / 2 + 4)
+            .attr("text-anchor", "middle")
+            .attr("font-size", "12px")
+            .attr("fill", "white")
+            .text(cell);
+        }
+      });
+    });
+  
+    for (let i = 0; i < route.length - 1; i++) {
+      const [x1, y1] = aisleCoords[route[i]];
+      const [x2, y2] = aisleCoords[route[i + 1]];
+  
+      svg.append("line")
+        .attr("x1", x1 * cellSize + cellSize / 2)
+        .attr("y1", y1 * cellSize + cellSize / 2)
+        .attr("x2", x2 * cellSize + cellSize / 2)
+        .attr("y2", y2 * cellSize + cellSize / 2)
+        .attr("stroke", "#007bff")
+        .attr("stroke-width", 4)
+        .attr("stroke-linecap", "round");
+    }
+  </script>
+  
 
 {% endblock %}
