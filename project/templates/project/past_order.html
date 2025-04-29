@@ -13,6 +13,11 @@
             <p>Ordered on: </p>
         </th>
         <th>
+            <p>
+                Order Name:
+            </p>
+        </th>
+        <th>
             <p>Total price: </p>
         </th>
         <th>
@@ -28,10 +33,15 @@
                 <p>{{order.timestamp}}</p>
             </td>
             <td>
-                <p>{{order.total_price}}</p>
+                <p>
+                    {{order.cart.name}}
+                </p>
             </td>
             <td>
-                <p>{{order.items}}</p>
+                <p>{{order.total_price|floatformat:2}}</p>
+            </td>
+            <td>
+                <p>{{order.items}} ...</p>
             </td>
             <td>
                 <p>

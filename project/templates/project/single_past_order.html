@@ -13,7 +13,7 @@
             <p>Customer: {{order.customer}}</p>
         </td>
         <td>
-            <p>Total Price: {{order.total_price}}</p>
+            <p>Total Price: {{order.total_price|floatformat:2}}</p>
         </td>
         <td>
             <form action="{% url 'SplitRoute' order.id %}" method="POST">
@@ -43,118 +43,121 @@
     </tr>
 </table>
 
-{% for store, aisles in selected_route.items %}
+{% for store, values in selected_route.items %}
 <table>
-    <tr>
-        <td>
-            <p>Store: {{store}}</p>
-        </td>
-        <td>
-            <p>List of aisle and items to go to by order</p>
-        </td>
-    </tr>
-    {% for aisle, items in aisles.items %}
-    <tr>
-        <td>
-            <p>Aisle: {{aisle}}</p>
-        </td>
-        {% for item in items %}
-        <td>
-            <p>
-                {{ item}} 
-            </p>
-        </td>
+    <thead>
+        <tr>
+            <th colspan="2">
+                <p>Store: {{ store }}</p>
+            </th>
+        </tr>
+        <tr>
+            <th><p>Aisle</p></th>
+            <th><p>Items</p></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for aisle, items in values.aisles.items %}
+        <tr>
+            <td>
+                <p>{{ aisle }}</p>
+            </td>
+            <td>
+                {% if items %}
+                    <ul>
+                        {% for item in items %}
+                            <li><p>{{ item }}</p></li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                <ul><li><p>No items</p></li></ul>
+                    
+                {% endif %}
+            </td>
+        </tr>
         {% endfor %}
-        
- 
-        {% endfor %}
-    </tr>
+    </tbody>
 </table>
 <!--converts my context variables into valid json so I can use in javascript with d3-->
 {{ layout|json_script:"layout-data" }}
 {{ route|json_script:"route-data" }}
+{{ path|json_script:"path-data" }}
 
-<!--this is where 3d will put the map and I can define the hiehgt and weidth-->
-<svg id="storeMap" width="800" height="600"></svg>
+<svg id="storeMap" width="1200" height="420"></svg>
 
-<!--d3 library -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
-{% endfor %}
+
 <script>
-    const SwitchStart = "{% url 'SwitchStart' order.id %}";
-    const PastOrder = "{% url 'PastOrder' order.id %}";
-    const selectedRoute = "{{ selected_route_name }}";
+const SwitchStart = "{% url 'SwitchStart' order.id %}";
+const PastOrder = "{% url 'PastOrder' order.id %}";
+const selectedRoute = "{{ selected_route_name }}";
 
-    function getCSRFToken() {
-    const cookie = document.cookie
-        .split("; ")
-        .find(row => row.startsWith("csrftoken="));
+function getCSRFToken() {
+    const cookie = document.cookie.split("; ").find(row => row.startsWith("csrftoken="));
     return cookie ? cookie.split("=")[1] : "";
-    }
-    // converts the context varaibel from json back to arrays for javascript this is needed since django defualt passed stirngs with single quote which breaks in javascript 
-    const storeLayout = JSON.parse(document.getElementById('layout-data').textContent);
-    const route = JSON.parse(document.getElementById('route-data').textContent);
+}
 
-    //intilazing the picture/map plus the dict for corrdinates
-    const cellSize = 80;
-    const svg = d3.select("#storeMap");
-    const aisleCoords = {};  
-  
-    storeLayout.forEach((row, y) => {
-      row.forEach((cell, x) => {
+const storeLayout = JSON.parse(document.getElementById('layout-data').textContent);
+const route = JSON.parse(document.getElementById('route-data').textContent);   // aisle names
+const path = JSON.parse(document.getElementById('path-data').textContent);     // list of coordinates
+
+const cellSize = 30;
+const svg = d3.select("#storeMap");
+const aisleCoords = {};
+
+// Draw the grid and circles
+storeLayout.forEach((row, y) => {
+    row.forEach((cell, x) => {
         const px = x * cellSize;
         const py = y * cellSize;
-  
-        // draw the grid cell
+
         svg.append("rect")
-          .attr("x", px)
-          .attr("y", py)
-          .attr("width", cellSize)
-          .attr("height", cellSize)
-          .attr("fill", cell === -1 ? "#f3f4f6" : "#e0f2fe")
-          .attr("stroke", "#ccc");
-  
-        if (cell !== -1) {
-          aisleCoords[cell] = [x, y];
-  
-          const circle = svg.append("circle")
-            .attr("cx", px + cellSize / 2)
-            .attr("cy", py + cellSize / 2)
-            .attr("r", 20)
-            .attr("fill", route.includes(cell) ? "#007bff" : "#6b7280");
+            .attr("x", px)
+            .attr("y", py)
+            .attr("width", cellSize)
+            .attr("height", cellSize)
+            .attr("fill", cell === -1 ? "#000000" : "#f3f4f6")
+            .attr("stroke", "#ccc");
+
+        if (cell !== -1 && cell !== 0) {
+            aisleCoords[cell] = [x, y];
+
+            const circle = svg.append("circle")
+                .attr("cx", px + cellSize / 2)
+                .attr("cy", py + cellSize / 2)
+                .attr("r", 20)
+                .attr("fill", route.includes(cell) ? "#007bff" : "#6b7280");  
 
             if (cell === "Main" || cell === "Back") {
-            circle
-                .style("cursor", "pointer")
-                .attr("fill", "#14532d")  
-                .on("click", () => {
-                fetch(`${SwitchStart}?start=${cell}&selected_route=${selectedRoute}`, {
-                    method: "POST",
-                    headers: {
-                    "X-CSRFToken": getCSRFToken()
-                    }
-                }).then(() => {
-                    window.location.href =  `${PastOrder}?selected_route=${selectedRoute}`;
-                });
-                });
+                circle
+                    .style("cursor", "pointer")
+                    .attr("fill", "#14532d")
+                    .on("click", () => {
+                        fetch(`${SwitchStart}?start=${cell}&selected_route=${selectedRoute}`, {
+                            method: "POST",
+                            headers: { "X-CSRFToken": getCSRFToken() }
+                        }).then(() => {
+                            window.location.href = `${PastOrder}?selected_route=${selectedRoute}`;
+                        });
+                    });
             }
-  
-          svg.append("text")
-            .attr("x", px + cellSize / 2)
-            .attr("y", py + cellSize / 2 + 4)
-            .attr("text-anchor", "middle")
-            .attr("font-size", "12px")
-            .attr("fill", "white")
-            .text(cell);
+
+            svg.append("text")
+                .attr("x", px + cellSize / 2)
+                .attr("y", py + cellSize / 2 + 4)
+                .attr("text-anchor", "middle")
+                .attr("font-size", "12px")
+                .attr("fill", "white")
+                .text(cell);
         }
-      });
     });
-  
-    for (let i = 0; i < route.length - 1; i++) {
-      const [x1, y1] = aisleCoords[route[i]];
-      const [x2, y2] = aisleCoords[route[i + 1]];
-  
-      svg.append("line")
+});
+
+for (let i = 0; i < path.length - 1; i++) {
+    const [y1, x1] = path[i];
+    const [y2, x2] = path[i + 1];
+
+    svg.append("line")
         .attr("x1", x1 * cellSize + cellSize / 2)
         .attr("y1", y1 * cellSize + cellSize / 2)
         .attr("x2", x2 * cellSize + cellSize / 2)
@@ -162,8 +165,10 @@
         .attr("stroke", "#007bff")
         .attr("stroke-width", 4)
         .attr("stroke-linecap", "round");
-    }
-  </script>
+}
+</script>
+    
+    {% endfor %}
   
 
 {% endblock %}

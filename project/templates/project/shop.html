@@ -11,32 +11,77 @@
     <div class="row">
         {% include "project/search.html" %}    
     </div>
-    <table>
-        <tr>
-            <th>Name</th>
-       
-           
-            <th>Price</th>
-            <th>Cart</th>
-        </tr>
 
-        {% for item in items %}
-        <tr>
-            
-            <td><p>{{item.name}}</p></td>
-            
-            <td><p>{{item.price}}</p></td>
-        
-            <td><form action="{% url 'AddToCart' item.id %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Add to Cart</button>
-            </form></td>
-         
-        </tr>
-        {% endfor %}
-    </table>
+        <div class = "page">
+
+            <div  class="page-prev">
+            {% if is_paginated %}
+                        {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}"><p>Previous</p></a>
+                        {% endif %}
+
+            {% endif %}
+            </div>
+
+            <div class="page-number">
+                <h3>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</h3>
+            </div>
+
+            <div class="page-next">
+            {% if is_paginated %}
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}"><p>Next</p></a>
+                    {% endif %}
+            {% endif %}
+            </div>
+
+        </div>
+
+
+        <div class="shop-grid">
+            {% for item in items %}
+                <div class="shop-item">
+                    <a href="{% url 'item' item.pk %}">
+                        <img src="{{ item.image }}" alt="{{ item.name }}">
+                        <p>{{ item.name }}</p>
+                    </a>
+                    <p>${{ item.price }}</p>
+                    <form action="{% url 'AddToCart' item.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+
+
+        <div class = "page">
+
+            <div  class="page-prev">
+            {% if is_paginated %}
+                        {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}"><p>Previous</p></a>
+                        {% endif %}
+
+            {% endif %}
+            </div>
+
+            <div class="page-number">
+                <h3>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</h3>
+            </div>
+
+            <div class="page-next">
+            {% if is_paginated %}
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}"><p>Next</p></a>
+                    {% endif %}
+            {% endif %}
+            </div>
+
+        </div>
+
+
 </div>
-
 
 
 

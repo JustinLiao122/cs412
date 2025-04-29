@@ -12,3 +12,28 @@ class CreateCartForm(forms.ModelForm):
         '''associate this form with the Profile model; select fields.'''
         model = Cart
         fields = ['name']
+
+
+
+
+
+
+class CreateCustomerForm(forms.ModelForm):
+     '''A form to add a Profile to the database.'''
+
+    
+     class Meta:
+        '''associate this form with the Profile model; select fields.'''
+        model = Customer
+        fields = ['firstname', 'lastname', 'address', 'email' ]
+
+
+
+class RenameCartForm(forms.ModelForm):
+     '''A form to add a Profile to the database.'''
+
+    
+     class Meta:
+        '''associate this form with the Profile model; select fields.'''
+        model = Cart
+        fields = ['name']

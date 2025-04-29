@@ -6,13 +6,11 @@
 
 <h2>Name Cart</h2>
 
- <!-- a link attached to a word that acts like a button which will redirect the user to the corresponding profile that the person was updating if they choose to cancel the update proccess -->
 <a href="{% url 'Cart' %}" >
     <h2>
         Cancel
     </h2>
 </a>
- <!-- form that uses the attributes of model Profile  -->
 <form action= "{% url 'CreateCart'  %}" method = 'POST'>
     {% csrf_token %}
    

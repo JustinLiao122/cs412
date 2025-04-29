@@ -1,0 +1,56 @@
+
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+
+
+<table>
+
+    <tr>
+        <td>
+            <p>{{item.name}}</p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <img src="{{ item.image }}" alt="{{ item.name }}" width="200">
+        </td>
+        <td>
+            <p>{{item.price}}</p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>{{item.store.name}}</p>
+        </td>
+        <td>
+            <p>{{item.stock}}</p>
+        </td>
+    </tr>
+
+    <tr>
+        <td><form action="{% url 'AddToCart' item.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Add to Cart</button>
+        </form>
+
+        </td>
+    </tr>
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+{% endblock %}

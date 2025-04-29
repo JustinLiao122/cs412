@@ -1,1 +1,85 @@
-https://cs-webapps.bu.edu/liaoju/quotes/
+ABDEF	V=13&ABDV=13&MRNB=1720646884081&MRB=0	.bing.com	/	2025-08-14T21:28:04.087Z	42		✓	None			Medium	
+ACI_S_ECommBanner	starmarket	www.starmarket.com	/	Session	27		✓				Medium	
+ACI_S_ECommSignInCount	0	www.starmarket.com	/	Session	23		✓				Medium	
+ACI_S_abs_previouslogin	%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22Selection%22%3A%22user%22%2C%22preference%22%3A%22J4U%22%2C%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2202215%22%2C%22banner%22%3A%22starmarket%22%2C%22siteType%22%3A%22C%22%2C%22customerType%22%3A%22%22%2C%22resolvedBy%22%3A%22zipcode%22%7D%2C%22J4U%22%3A%7B%22zipcode%22%3A%2202215%22%2C%22storeId%22%3A%223588%22%7D%2C%22SHOP%22%3A%7B%22zipcode%22%3A%2202215%22%2C%22storeId%22%3A%223588%22%7D%7D%7D	www.starmarket.com	/	Session	466		✓				Medium	
+AEC	AVcja2c3NHR15spBhAcygiy5YN32vg4BpEG1K1GcllbFXddqD_1RiGn5Yw	.google.com	/	2025-10-08T18:24:56.539Z	61	✓	✓	Lax			Medium	
+AMCVS_A7BF3BC75245ADF20A490D4D%40AdobeOrg	1	.starmarket.com	/	Session	42		✓	None			Medium	
+AMCV_A7BF3BC75245ADF20A490D4D%40AdobeOrg	179643557%7CMCIDTS%7C20203%7CMCMID%7C36121588625269096751280557966579584470%7CMCAAMLH-1746133113%7C7%7CMCAAMB-1746133113%7C6G1ynYcLPuiQxYZrsz_pkqfLG9yMXBpb2zX5dvJdYQJzPXImdj0y%7CMCOPTOUT-1745535513s%7CNONE%7CvVersion%7C5.5.0	.starmarket.com	/	2026-05-29T20:58:33.394Z	264		✓	None			Medium	
+APISID	rBkf8I_0MBvnQ2Vl/AqzdJqbopim9oleV3	.google.com	/	2026-05-11T04:08:41.482Z	40						High	
+Conversion	EgwIABUAAAAAHQAAAAAYASD_uvuAuLPiuY0BSAFqW0Nqd0tDQWp3d3FmQUJoQmNFaXdBWkpqQzN0OXRibmlWd05leHNrMGhmWlBfeFZXVWJUdXNOSk43Rmh3cWJXalVZWEpUdmczQjd0YU9aUm9DZUx3UUF2RF9Cd0VwrebKq6fxjAOQAbbQuJC6E5gBAA	www.googleadservices.com	/pagead/conversion/934151160/	2025-07-23T18:33:49.744Z	200		✓	None			Medium	
+GCL_AW_P	GCL.1745520129.CjwKCAjwwqfABhBcEiwAZJjC3t9tbniVwNexsk0hfZP_xVWUbTusNJN7FhwqbWjUYXJTvg3B7taOZRoCeLwQAvD_BwE	.googleadservices.com	/	2025-07-23T18:42:10.265Z	114	✓	✓	None	https://starmarket.com	✓	Medium	
+HSID	AJUgwjJRTvk0Wgp5K	.google.com	/	2026-05-11T04:08:41.482Z	21	✓					High	
+IDE	AHWqTUkKjsXMLlISt7R0-JB0mz7-HlvTgQZ8KmcMbLV9po3_bQ3K7IIlfrMuimmJ1dY	.doubleclick.net	/	2026-04-14T20:52:07.914Z	70	✓	✓	None			Medium	
+KievRPSSecAuth	FACSBBRaTOJILtFsMkpLVWSG6AN6C/svRwNmAAAEgAAACCLDQ+z2vSIoUAShGQT9MPuux+arBBBgWAGvRakLYzv1CdGRzErrgfYybYiPJt2aghlmBDopVFs/XkVa23aVQZMbUtNJJPUFx4nuiIVlpIEDvaZX6TRRJNVKzwhdBkquCd1acX5GXr3IIo/laFO7ynBEJb+vNqHk1IeetYR1nQpNoEmmgEDzw8fKZ6gO/TloEDER5C4VYpJ0SDSVyIUEaWA9CLs3TDCbXiWNWFu0LxyJg85pTW7e0EjDwFSmj+dkWHVjc37s0ttLsOJmtvgQmliQepVi5pgqbtjV8Wg5ZCgLuVmzkbDf5oAQ23eLJEUCSb9iC9lJBND6APc1sZX21hn1uCdYojFcdZw5Vx0tRZQDyuHf/G5kMUJQP4NxWAHqAGXRtFaXtRsLIV5bBJSTk3Uy1ONC134RmIoZh0tPNrgYA5inGytLLxRyMQ+n4q8j7/TyIg+IetRMbfdvpYNaeumyLNc4JHnP8NF3URH3pm+G+C8+SQa9P02Hi4Te8RkPf3iGQhevouUhg31HIiq+9hSLFLGGqws8mAPrrdVGT49RxjDrCHzR96vWVLWS9+Nd2azHjRptRq+nsoSxhVzsRsxAPz+ibxrOazUG32hc3JOwkyfFMkKSXZ1Gt335xmMDx/xPcFxkrgSL6drfXNuvedceSZi35YiyzYqOwGlMjP4lvP4jlDZsJocYRCbUxx5At9rXGubqXxliLSIkh9T8bsZTW/FOrdaLFuGpFWzeotIqKFgU4s7oZdYVgRxk6hCl+xMK5mPQkxdO9uJBzH/t2P7QllQ++DU548fb+1Um0mJVlJUUDSZIKA7pEpPQtM7tbqQWCkMZwIthH2iOGIRDJy6BK1BW0wuS6bK0/YXQaz0SbsIySDye51qNt+92oeU4dubr75Bh41dTbYfDslQSnkn66IE7mV3I/c1l6/644x308Mv6JrJB3nWpydHo2zkqcp3MEQhVNFD34wNfHKfESSzN/V4wUhbY+tKoRwFOVdxY2z5jOq+eMTXEej0Yg69NRhmrbUso8K32vBC2nTfoPENo66pzfWNdntBQHWSdqb73Z/JS7ml9WNHVXVptPoyGoymYKJkylhFLyUbudUdmKi7b6kRCDWYYBHC95NouTrQxCYnN5oCLsfPCG/KAmJ94dUHklWv9bOfcPhb5xOeHwjXyyacALFhLbDlqOO1/Mlsu+EwRvbZptHyNC9NDUdfais81f5eaJIjJF3u/x+uGDOPwKzxmRnDBFdwFtsLbhTobzW7rNyx1uSLbA2R9Ru+oLYf/MzC/rtetZd7SI1hmKM7/t6fy3/7mzcs+7yuvmoSCFndxO+WkPl1tHiQVvfGUxNHHuCvhZoE8XdTwCi310yIMuzGrFga48R3jddSBm6TWE25th2p0fbh1+wsR7r4bhkLplvZTKgsgt2dK1kBqO8L3mR6dNKSLTXc03iySlYcP8qjArQCxPQYkaQWK7pMr9Xn+XWRjUh2tWesUAK8EjEQbsatuUHMLi3MkRDPg4I5k	.bing.com	/	2025-08-14T02:19:32.114Z	1574	✓	✓	None			Medium	
+MMCASM	ID=4CB6E1711DC04BB1BAA426205595CDA0	.bing.com	/	2025-08-10T01:34:05.424Z	41		✓	None			Medium	
+MR	0	.bat.bing.com	/	2025-05-01T18:34:24.107Z	3		✓	None			Medium	
+MSPTC	b3hDF2_vejFjCMvZfX5oiG_Tcq724B_pWbViCJStalw	.bing.com	/	2026-05-19T18:34:24.107Z	48		✓	None	https://starmarket.com	✓	Medium	
+MUID	32AF5AA4F5FB6E6217814EC6F4DB6FE8	.bing.com	/	2026-05-19T18:34:24.107Z	36		✓	None			High	
+NID	523=ZgFnai_d9kBQKdHh4tdfEgXEq6-gMUspIi8Y6EQVaP_4YjCfxQ5-TUwGXgMUpFmKtqCvq-e-d-kB2h8gETpfJe65qJtGVzqXG1E0gjCpLMOIUUezdsVW_jVMpGfQrhkn0tr1AC9DBkHbuf-vY0nvd9i_CRze-EGrHr9AguKRjJYz8qzinioIpeLWO3QGAJo7uSxLywO_bcvcY1fh-bD5CtUW6XZ2JefUPypds8jitEAoebcwUZUQqOkaCAvU-g1rr706UTeoJbZsBIGwb7L3hRJ6CcrKOTgJ3tzhNEfWxuVO2DQ7pbeqt3hv1BEw0k47bDAdkdHN6hcJMbUg3wkb7IT_G7KNhf10KTtn2fzpJVPPCKN-dyEIO0zEmRwPCZRbZDSvQT8vP4he9mPuxziiUR67qTnSHVsHS_6N60L6MC7txVZ_a-2kIAAWLBVjFfmc5N4Z_ZH4WyNOWObGG6NcFTX_5RM32PF4O16O3GF6hlNY0vvHkxdmqjOcqo7U77SKV4ZohzJTmlXHdtfDRVR_zt5hB6sLYNLlReaQz-bQbN0a-ymSWZAPuQruy9uWFD4UCxPo	.google.com	/	2025-10-24T16:39:28.369Z	587	✓	✓	None			Medium	
+OptanonAlertBoxClosed	2025-04-24T19:54:17.775Z	.www.starmarket.com	/	2026-04-24T19:54:17.000Z	45			Lax			Medium	
+OptanonConsent	isGpcEnabled=0&datestamp=Thu+Apr+24+2025+18%3A01%3A29+GMT-0400+(Eastern+Daylight+Time)&version=202409.1.0&browserGpcFlag=0&isIABGlobal=false&hosts=&consentId=dd6c9d75-deb0-435b-af88-eb0188406c84&interactionCount=2&isAnonUser=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0004%3A1%2CC0003%3A1&AwaitingReconsent=false&intType=3&geolocation=US%3BMA	.www.starmarket.com	/	2026-04-24T22:01:29.000Z	374			Lax			Medium	
+PPLState	1	.bing.com	/	2025-08-14T02:19:32.114Z	9		✓	None			Medium	
+SAFEWAY_MODAL_LINK		.starmarket.com	/	Session	18		✓				Medium	
+SAPISID	0WYDMZbQJOV-V-5J/A-t9yXLQekS0XauFO	.google.com	/	2026-05-11T04:08:41.482Z	41		✓				High	
+SEARCH_SAMESITE	CgQI-ZwB	.google.com	/	2025-06-30T08:00:56.629Z	23			Strict			Medium	
+SID	g.a000vghfHks0PhuepldJmi82PE3if7njTb56-y06vZeUrBE__plwSlzZZCN0XPrK0khBXVVQKgACgYKAUsSAQASFQHGX2MinneEOSOo3LVnkYHvYeVX0RoVAUF8yKrUNhSCmolDwvODYhkDmIny0076	.google.com	/	2026-05-11T04:08:41.483Z	156						High	
+SIDCC	AKEyXzUufNF0wZHxK5A3lo6EhkDgGWszFWwDyHpCpPGrgyGei9NRA9eewazSPETwJb_n4-556pU	.google.com	/	2026-04-24T21:58:58.654Z	80						High	
+SRCHD	AF=NOFORM	.bing.com	/	2025-06-20T20:14:28.212Z	14		✓	None			Medium	
+SRCHHPGUSR	SRCHLANG=en&IG=638CF2E2DBBC4D24BDAA948F6FAC12F9&BRW=XW&BRH=M&CW=1920&CH=911&SCW=1903&SCH=3364&DPR=1.0&UTC=-240&DM=0&PV=15.0.0&CIBV=1.1788.0&HV=1720647137&WTS=63856174735&PRVCW=1920&PRVCH=911&EXLTT=13	.bing.com	/	2025-08-14T21:32:17.411Z	209		✓	None			Medium	
+SRCHUID	V=2&GUID=EC44F6DF894942DCB39FD42CE04446D7&dmnchg=1	.bing.com	/	2025-06-20T20:14:28.212Z	57		✓	None			Medium	
+SRCHUSR	DOB=20240516&T=1720646854000&TPC=1720646857000&POEX=W	.bing.com	/	2025-08-14T21:27:37.790Z	60		✓	None			Medium	
+SSID	AER3GBrkdItLzgTC9	.google.com	/	2026-05-11T04:08:41.482Z	21	✓	✓				High
+SWY_SHARED_SESSION_INFO	%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2202215%22%2C%22banner%22%3A%22starmarket%22%2C%22preference%22%3A%22J4U%22%2C%22Selection%22%3A%22user%22%2C%22xDTags%22%3A%22bad_user_agents%2C+non_human%22%2C%22userData%22%3A%7B%7D%2C%22grsSessionId%22%3A%22a9148b4c-3580-4aa1-87e5-fb899236526b%22%2C%22siteType%22%3A%22C%22%2C%22customerType%22%3A%22%22%2C%22resolvedBy%22%3A%22zipcode%22%7D%2C%22J4U%22%3A%7B%22storeId%22%3A%223588%22%2C%22zipcode%22%3A%2202215%22%2C%22userData%22%3A%7B%7D%7D%2C%22SHOP%22%3A%7B%22storeId%22%3A%223588%22%2C%22zipcode%22%3A%2202215%22%2C%22userData%22%3A%7B%7D%7D%7D%7D	www.starmarket.com	/	2025-04-24T22:46:31.081Z	662		✓				Medium	
+USRLOC	HS=1&ELOC=LAT=42.354774475097656|LON=-71.11320495605469|N=Cambridge%2C%20Massachusetts|ELT=4|	.bing.com	/	2025-08-14T21:27:36.488Z	99	✓	✓	None			Medium	
+UULE	a+cm9sZTogMQpwcm9kdWNlcjogMTIKdGltZXN0YW1wOiAxNzQ1NTMxNDQ4NTg2MDAwCmxhdGxuZyB7CiAgbGF0aXR1ZGVfZTc6IDQyMzUxNTEyMQogIGxvbmdpdHVkZV9lNzogLTcxMTA2OTYxMwp9CnJhZGl1czogOTI3NzM5MC40MzMwMjA3MDMKcHJvdmVuYW5jZTogNgo=	www.google.com	/	2025-04-25T03:50:48.000Z	210		✓				Medium	
+_HPVN	CS=eyJQbiI6eyJDbiI6NSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiUCJ9LCJTYyI6eyJDbiI6NSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiSCJ9LCJReiI6eyJDbiI6NSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiVCJ9LCJBcCI6dHJ1ZSwiTXV0ZSI6dHJ1ZSwiTGFkIjoiMjAyNC0wNy0xMFQwMDowMDowMFoiLCJJb3RkIjowLCJHd2IiOjAsIlRucyI6MCwiRGZ0IjpudWxsLCJNdnMiOjAsIkZsdCI6MCwiSW1wIjo4OCwiVG9ibiI6MH0=	.bing.com	/	2025-08-14T21:28:21.011Z	328		✓	None			Medium	
+_RwBf	mta=0&rc=947&rb=947&gb=0&rg=1500&pc=947&mtu=0&rbb=0.0&g=0&cid=&clo=0&v=30&l=2024-07-10T07:00:00.0000000Z&lft=0001-01-01T00:00:00.0000000&aof=0&ard=0001-01-01T00:00:00.0000000&rwdbt=2024-07-10T14:27:28.0841545-07:00&rwflt=2024-07-05T18:07:16.1128926-07:00&o=16&p=MSAAUTOENROLL&c=MR000T&t=8003&s=2023-12-10T19:03:23.2376244+00:00&ts=2024-07-10T21:32:16.1831596+00:00&rwred=0&wls=2&wlb=0&wle=0&ccp=2&cpt=0&lka=0&lkt=0&aad=0&TH=&e=VUeWXXJpEfX2_Sof6Bf-CGNrXBZEtvu0IswjbNHwdfg2sutcwgHIZEsH8vKIwiR6TNeu38Whjvta8p30RUMx5w&A=25F81AD26C4048DFBA80F7C1FFFFFFFF	.bing.com	/	2025-08-14T21:32:18.581Z	553		✓	None			Medium	
+_UR	cdxcls=0&QS=0&TQS=0	.bing.com	/	2025-08-14T21:28:20.307Z	22		✓	None			Medium	
+__Secure-1PAPISID	0WYDMZbQJOV-V-5J/A-t9yXLQekS0XauFO	.google.com	/	2026-05-11T04:08:41.483Z	51		✓				High	
+__Secure-1PSID	g.a000vghfHks0PhuepldJmi82PE3if7njTb56-y06vZeUrBE__plwgpodL_1j-WZGr0zexSzrvQACgYKAT4SAQASFQHGX2Mi-17MqOO-is1LbISyJeQ9DhoVAUF8yKoCGZZjupEDpYhT4DeFhNQd0076	.google.com	/	2026-05-11T04:08:41.483Z	167	✓	✓				High	
+__Secure-1PSIDCC	AKEyXzVP9pnzv7kMuTPyuLXfhCK9N5L19-0k9Av0AOo_B6EqlAHL6yb3xzXVjHU0UhFIh4L-znw	.google.com	/	2026-04-24T21:58:58.654Z	91	✓	✓				High	
+__Secure-1PSIDTS	sidts-CjIB7pHptSAhYHT72Jz36uFYTBxkBAe7A_ZzhJxjwH6dMqFVef-1yBLE5H7fM3Ofu6mFjhAA	.google.com	/	2026-04-24T21:58:58.654Z	94	✓	✓				High	
+__Secure-3PAPISID	0WYDMZbQJOV-V-5J/A-t9yXLQekS0XauFO	.google.com	/	2026-05-11T04:08:41.483Z	51		✓	None			High	
+__Secure-3PSID	g.a000vghfHks0PhuepldJmi82PE3if7njTb56-y06vZeUrBE__plwA3klgRn7_pMASbzUMwALdAACgYKAfcSAQASFQHGX2Mirm2a0tNGQ-rKgBRuV8sOExoVAUF8yKoH1IxOORd3ILqCd5nJpWFT0076	.google.com	/	2026-05-11T04:08:41.483Z	167	✓	✓	None			High	
+__Secure-3PSIDCC	AKEyXzVTOVWoLbwQJXMXmbbV0k43Gd8MPt9ZBfoBH0FaXvHL-2gdwfawyf-aV1cMCiapwX2xaIs-	.google.com	/	2026-04-24T22:01:34.119Z	92	✓	✓	None			High	
+__Secure-3PSIDTS	sidts-CjIB7pHptSAhYHT72Jz36uFYTBxkBAe7A_ZzhJxjwH6dMqFVef-1yBLE5H7fM3Ofu6mFjhAA	.google.com	/	2026-04-24T21:58:58.654Z	94	✓	✓	None			High	
+__pdst	859f52b29b8941148decf5b2964d2ac6	www.starmarket.com	/	2026-04-24T18:34:23.000Z	38			Strict			Medium	
+_auth	0	.pinterest.com	/	2025-12-07T23:33:39.654Z	6	✓	✓				Medium	
+_ga_W73SGEEDQQ	GS1.1.1745532093.1.0.1745532093.0.0.0	.starmarket.com	/	2026-05-29T22:01:33.527Z	51						Medium	
+_gcl_au	1.1.493727837.1745519664.1595829133.1745521401.1745521400	.starmarket.com	/	2025-07-23T18:34:24.000Z	64		✓	None			Medium	
+_gcl_aw	GCL.1745521033.CjwKCAjwwqfABhBcEiwAZJjC3t9tbniVwNexsk0hfZP_xVWUbTusNJN7FhwqbWjUYXJTvg3B7taOZRoCeLwQAvD_BwE	.starmarket.com	/	2025-07-23T18:57:13.000Z	113						Medium	
+_gcl_dc	GCL.1745521033.CjwKCAjwwqfABhBcEiwAZJjC3t9tbniVwNexsk0hfZP_xVWUbTusNJN7FhwqbWjUYXJTvg3B7taOZRoCeLwQAvD_BwE	.starmarket.com	/	2025-07-23T18:57:13.000Z	113						Medium	
+_gcl_gs	2.1.k1$i1745519659$u28901502	.starmarket.com	/	2025-07-23T18:34:24.000Z	35						Medium	
+_pin_unauth	dWlkPU56ZGhNamMxTnpFdE5ETm1PUzAwTjJJMkxUZzRZalF0WWpkaU5UWmlaREV5TURZeg	.starmarket.com	/	2026-04-24T22:01:33.000Z	81						Medium	
+_pinterest_ct_ua	"TWc9PSZYQzVUZDU4ZWxQMi8vRDRORFc3emdaWDdGajl3bklEYW0wdGVyaE1yelFJTDJ1bGJ2N0EzSnlDbUNxV1ZJOVcyTGpyRDdPTnRVUFlNYlBWMlVpRXQ1ay9xa0lwL25nMjR6dEprbnJJQ1FsOD0mTS9PU1RaVmdYSW5TRmtZeXZqSFNSZGUrRmNFPQ=="	.ct.pinterest.com	/	2026-04-24T22:01:33.916Z	210		✓	None			Medium	
+_pinterest_sess	TWc9PSY0Z1NWUlE5NTFZZ2xxTDUzSUZtaWpac1AzV1BlV20wekhWSjVkVmJ0L2VEREFBTjNJWmZRelErayt0dU0waTBJZWg5K05iUWYrSFkrUnBVNFFNTzNjelc2aFV5SkpmeHBkSi92V0NHdGZDZz0mNUhNOHZKNHh4ZEU3YVJRWjdVcTVQd1d4eDdVPQ==	.pinterest.com	/	2025-12-07T23:33:39.654Z	207	✓	✓	None			Medium	
+_tt_enable_cookie	1	.starmarket.com	/	2026-05-19T19:04:55.000Z	18						Medium	
+_ttp	2fYQPyKPGb1HDx3LKWyypUFTP4b	.tiktok.com	/	2026-05-19T22:01:32.863Z	31		✓	None			Medium	
+_uetvid	bec23cf0213a11f083b41fbce83a71ff	.starmarket.com	/	2026-05-19T22:01:33.000Z	39		✓	None			Medium
+absVisitorId	cdfb214b-71be-4cb1-a0e0-31f230abc96c	.starmarket.com	/	2025-11-10T18:34:23.565Z	48						Medium	
+abs_gsession	%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22Selection%22%3A%22user%22%2C%22preference%22%3A%22J4U%22%2C%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2202215%22%2C%22banner%22%3A%22starmarket%22%2C%22siteType%22%3A%22C%22%2C%22customerType%22%3A%22%22%2C%22resolvedBy%22%3A%22zipcode%22%7D%2C%22J4U%22%3A%7B%22zipcode%22%3A%2202215%22%2C%22storeId%22%3A%223588%22%7D%2C%22SHOP%22%3A%7B%22zipcode%22%3A%2202215%22%2C%22storeId%22%3A%223588%22%7D%7D%7D	www.starmarket.com	/	Session	455		✓				Medium	
+akacd_PR-bg-www-prod-starmarket	3922972459~rv=2~id=c1daa57d9fe692237e5a8e3872d55dbd	www.starmarket.com	/	Session	82		✓	None			Medium	
+ar_debug	1	.pinterest.com	/	2026-04-24T22:01:33.916Z	9	✓	✓	None			Medium	
+ar_debug	1	.googleadservices.com	/	2025-07-23T18:50:22.849Z	9	✓	✓	None			Medium	
+ar_debug	1	.doubleclick.net	/	2025-05-24T22:01:33.926Z	9	✓	✓	None			Medium	
+at_check	true	.starmarket.com	/	Session	12		✓	None			Medium	
+clinch-sid	eed00788-3153-44d2-af9e-3cfa6289b06a~1745519663	.clinch.co	/	2025-05-24T18:34:24.120Z	57		✓	None			Medium	
+gpv_Page	starmarket%3Adelivery%3Asearch-results	.starmarket.com	/	2025-04-24T22:31:32.000Z	46		✓				Medium	
+incap_ses_130_2083761	lygdK5oAWVFKQFqlMdvNAfOlCmgAAAAAIC52ZrDq/BfxIUo2bnwtQg==	www.starmarket.com	/	Session	77						Medium	
+ktcid	32aacdb6-ef8f-0a4c-5fae-fe3232edcc29	.kargo.com	/	2026-04-03T15:35:53.868Z	41	✓	✓	None			Medium	
+mbox	PC#cdeede6d9d9048ea9adb3e6d4711ea23.34_0#1808776890|session#d68a2cffd51a46a19be92e076a9f60eb#1745533950	.starmarket.com	/	2026-05-29T22:01:29.515Z	107		✓	None			Medium	
+nlbi_2083761	0nyaOfjPxSbryUmvgII9VgAAAAD0TXpunjgPbR1ikTyo6jrs	www.starmarket.com	/	Session	60	✓					Medium	
+nlbi_2083761_2147483392	04zhXoR/ggqwPU/ggII9VgAAAADdHtPA5dQ/AYLffh5EVv2Z	www.starmarket.com	/	Session	71	✓					Medium	
+receive-cookie-deprecation	1	.doubleclick.net	/	2025-10-21T22:01:33.926Z	27	✓	✓	None	https://starmarket.com	✓	Medium	
+reese84	3:2cclaJ/BWQbm+p7z3AGN4A==:KSd4Ph5pSX/nfqryGgD4f53Af/rp+zsBNl1ObOX0ubQBBsTXk0F2p4OX2rtBoA/n9SGD05wR/oCcqG4wRPNCEwwGTondRuz3Wlnn4G3PheHQk2vM3UI6K+qY30tv1awvISk033i2Yx9VEiMQt24JkYOZAdy72uY1vNKtWODzRVw3T69jcX/qE5BU7mklzdJr0UmNhYtzcSHb+FCU0NSXoGn7uYt+vzlXBz0aPnbM0uAMZYJPwsZCYZbfD3dJqImBVAzAIbexvArymShHU1kcH1RAg/ttR4crlkDIH+vtSDbYfl7KixpNzgys5QKsfP6JTI7GtetGGK6Ciukwhj7MDwjfrwcWAAgsFMW0IM/rYw6ilcUdlydj3dzG8cJavwZ3EBIhUNLz4Emf0VbgobPoqFeN0mByKzG9wG6ABBvAbv3Is9ojABl6NSzuY5H0tb9axelVzdKq29oc3bo3tiMCic4tzfX8KL+gI9r0xirzxmbV5tlK7zuM5vgv06GVEIhAt2+iE8fS3zcccQjhfmbCeIFqUGWJu86NWWZ6i4e5V9Q=:3FvXXrozacLZc/mtrKncC7nF7JEAxdhaMqRhgwJbI0k=	.www.starmarket.com	/	2025-05-24T22:01:33.256Z	635			Lax			Medium	
+s_ivc	true	.starmarket.com	/	2025-04-24T22:31:32.000Z	9		✓				Medium	
+s_sq	%5B%5BB%5D%5D	.starmarket.com	/	Session	17		✓				Medium	
+salsify_session_id	dd8a5d34-a005-4ba5-9df1-c21c27a29d0f	.www.starmarket.com	/	2026-05-29T18:45:16.430Z	54						Medium	
+signifyd_sessionId	a51H6fe3-5184-Peb2-8df3-abbb-2233526_37fe	www.starmarket.com	/	2025-04-25T18:34:41.000Z	59						Medium	
+sskyCreationTime	1714526641566	.sundaysky.com	/	2026-05-29T22:01:33.246Z	29		✓	None			Medium	
+sskya	e2dsOnt0czoiNHV6a3hiIixhOiJhbGJlcnRzb25zIn0sdHI6e3RzOiI0dXpreHUiLGE6ImFsYmVydHNvbnMifSxhdDp7dHM6IjR1emt5NyIsYToiYWxiZXJ0c29ucyJ9LGxycDp7dHM6IjR1emt4biIsYToiYWxiZXJ0c29ucyJ9LGJrOnt0czoiNHV6a3k3IixhOiJhbGJlcnRzb25zIn0sYWFtOnt0czoiNHV6a3k3IixhOiJhbGJlcnRzb25zIn0sY3c6e3RzOiI0dXpreG4iLGE6ImFsYmVydHNvbnMifSxmdzp7dHM6IjR1emt4dSIsYToiYWxiZXJ0c29ucyJ9LGNtOnt0czoiNHV6a3huIixhOiJhbGJlcnRzb25zIn0sdGQ6e3RzOiI0dXpreHUiLGE6ImFsYmVydHNvbnMifSxhbjp7dHM6IjR1emt4YiIsYToiYWxiZXJ0c29ucyJ9LGJmOnt0czoiNHV6a3h1IixhOiJhbGJlcnRzb25zIn0sb3g6e3RzOiI0dXpreGIiLGE6ImFsYmVydHNvbnMifSxyYjp7dHM6IjR1emt4YiIsYToiYWxiZXJ0c29ucyJ9LHNmOnt0czoiNHV6a3k3IixhOiJhbGJlcnRzb25zIn0sdmR6Ont0czoiNHV6a3huIixhOiJhbGJlcnRzb25zIn19	.sundaysky.com	/	2025-05-01T18:34:55.477Z	693		✓	None			Medium	
+sskyu	d6.205984cf4a544f44809eff2bc88c27ec	.sundaysky.com	/	2026-05-29T22:01:33.246Z	40		✓	None			Medium	
+ttcsid	1745530265794::wcOag3CfEk5sEkn06GUR.4.1745532093571	.starmarket.com	/	2026-05-19T22:01:33.000Z	57						Medium	
+ttcsid_CEUU933C77UA1PN5K8JG	1745528316225::7GfiKpMEboB0QfwdGJcW.3.1745532093838	.starmarket.com	/	2026-05-19T22:01:33.000Z	78						Medium	
+ttwid	1%7C5h1EZfN_gVyitLs-TMiTs5qjynBcwPvt1oGO1QFVFik%7C1723921878%7Cacd75062e2fb74ad719bc127b3ef9cab82a1389d4676d10e4e1e11c46fb6374e	.tiktok.com	/	2025-08-17T19:11:19.604Z	132	✓	✓	None			Medium	
+visid_incap_2083761	PxY/xS2+SY+hRD+O1rqlyyuECmgAAAAAQUIPAAAAAADG9kX39oIjAXk0QYnFfHum	www.starmarket.com	/	2026-04-24T07:32:52.684Z	83	✓					Medium
