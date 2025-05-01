@@ -1,6 +1,6 @@
-# File: voter_analytics/urls.py
-# Author: Justin Liao (liaoju@bu.edu), 4/3/2025
-# Description: url patterns for the restaurant app
+# File: project/urls.py
+# Author: Justin Liao (liaoju@bu.edu), 4/26/2025
+# Description: url patterns for the project app
 
 from django.urls import path
 from django.conf import settings
@@ -16,8 +16,8 @@ urlpatterns = [
     path(r'item/<int:pk>/', views.SingleItem.as_view(), name='item'),
     path(r'cart/', views.ActiveCartDetailView.as_view(), name='Cart'),
     path(r'PastOrders/', views.PastOrders.as_view(), name='PastOrders'),
-    path('login/', auth_views.LoginView.as_view(template_name='project/login.html'), name='Login'), ## NEW
-	path('logout/', auth_views.LogoutView.as_view(template_name='project/logged_out.html'), name='Logout'), ## NEW
+    path('login/', auth_views.LoginView.as_view(template_name='project/login.html'), name='Login'), 
+	path('logout/', auth_views.LogoutView.as_view(template_name='project/logged_out.html'), name='Logout'),
     path(r'cart/add/<int:item_id>/', views.AddToCartView, name='AddToCart'),
     path('cart/switch/<int:cart_id>/', views.switch_to_cart, name='switch_to_cart'),
     path('cart/remove/<int:item_id>/<int:cart_id>/', views.remove_from_cart, name='remove_from_cart'),
@@ -30,7 +30,7 @@ urlpatterns = [
     path("PastOrder/<int:pk>/SplitRoute/", views.SplitRouteView.as_view(), name="SplitRoute"),
     path('create_customer', views.CreateCustomerView.as_view(), name='create_customer'),
     path(r'cart/rename/<int:pk>/', views.RenameCartView.as_view(), name='RenameCart'),
-
+    path('PastOrder/<int:pk>/reorder/', views.ReorderView.as_view(), name='reorder'),
 
 
 ]

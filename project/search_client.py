@@ -1,3 +1,8 @@
+# File: project/search_client.py
+# Author: Justin Liao (liaoju@bu.edu), 4/26/2025
+# Description: Bonsai APi 
+
+
 from elasticsearch import Elasticsearch
 
 #  Bonsai Api

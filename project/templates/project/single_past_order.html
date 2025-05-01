@@ -23,6 +23,12 @@
                 <button type="submit">Split</button>
               </form>
         </td>
+        <td>
+            <form action="{% url 'reorder' order.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Reorder</button>
+              </form>
+        </td>
     </tr>
 </table>
 <table>

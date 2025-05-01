@@ -80,7 +80,7 @@ body {
   border: none;
   color: white;
   cursor: pointer;
-  font-size: 10px;         /* Match .menu a */
+  font-size: 10px;         
   font-weight: 600;
   font-family: inherit;
   padding: 1rem;
@@ -93,7 +93,7 @@ body {
 
 .logout-wrapper input[type="submit"]:hover,
 .logout-wrapper input[type="submit"]:focus {
-  background-color: rgba(255, 255, 255, 0.1); /* Same as .menu a:hover */
+  background-color: rgba(255, 255, 255, 0.1); 
   border-radius: 0.25rem;
   outline: none;
 }
@@ -301,4 +301,48 @@ form {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+
+
+
+.search {
+
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #753ce6;
+  border-radius: 999px;
+  padding: 6px 10px;
+  width: 400px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.search-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.search-button:hover {
+  background-color: #f0f0f0;
 }

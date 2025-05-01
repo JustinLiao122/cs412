@@ -1,10 +1,12 @@
 
-<form action="{{ request.path }}" method="get">
+<form action="{{ request.path }}" method="get" class = "search">
+    <div class ="search-bar">
     <input 
         type="text" 
         name="q" 
         placeholder="Search items..." 
-        style="width: 300px; padding: 8px;" 
+        class = "search-input"
     >
-    <input type="submit" value="Search">
+    <input type="submit" value="Search" class="search-button">
+    </div>
 </form>
