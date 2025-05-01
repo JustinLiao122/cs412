@@ -1,3 +1,8 @@
+# File: project/admin.py
+# Author: Justin Liao (liaoju@bu.edu), 4/16/2025
+# Description: registers models with in the django admin framework where I can modify them
+
+
 from django.contrib import admin
 
 # Register your models here.

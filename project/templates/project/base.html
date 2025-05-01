@@ -1,16 +1,16 @@
 
 
-<!--voter_analytics/base.html-->
-<!--Author: Justin Liao (liaoju@bu.edu), 4/3/2025-->
+<!--project/base.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/16/2025-->
 <!--Description: html form to display the base page that gets interited form other html-->
 {%load static%}
 
 
 <html>
     <head>
-        <!--title for all pages-->
-
         
+
+        <!--Link my css-->
         <link rel="stylesheet" href="{% static 'project/styles.css' %}">
 
 
@@ -18,35 +18,14 @@
     
       
     <body>
-      
-        <!-- <div class="dropdown-container">
-            <button onclick="toggleDropdown()" class="dropdown-button">☰ Menu</button>
-            <div id="userDropdown" class="dropdown-menu">
-            {% if request.user.is_authenticated %} 
-              <div class="dropdown-user">👤 {{ request.user.username }}</div>
-              <form action="{% url 'Logout' %}" method = "POST" >    
-                {% csrf_token %}            
-                
-                <input type="submit" name="Logout" value="Logout">
-                </form> 
-            <a href="{% url 'shop' %}">🛒 Shop</a>
-              <a href="{% url 'Cart' %}">🛒 Cart</a>
-              <a href="{% url 'PastOrders' %}">📦 Past Orders</a>
-            {% else%}
-            <a href="{% url 'Login' %}">Log in</a>
-            <a href="{% url 'create_customer' %}">Sign up</a>
-            {% endif %}
-            </div>
-          </div> -->
-
-
-
+          <!--This is a nav bar so I can move between pages and handles login logout and signup-->
           <nav class="menu">
             <ol>
               <li class="menu-item"> <a href="#">AislePilot</a></li>
               <li class="menu-item">
                 <a href="#">User</a>
                 <ul class="sub-menu">
+                  <!--checks if the user is logined if it is it will display the name and signout button-->
                   {% if request.user.is_authenticated %}
                     <li><a href="#">{{ request.user.username }}</a></li>
                     <li>
@@ -56,11 +35,13 @@
                       </form>
                     </li>
                   {% else %}
+                  <!--if used is not signed in it will display the login and signup button-->
                     <li><a href="{% url 'Login' %}">Log in</a></li>
                     <li><a href="{% url 'create_customer' %}">Sign up</a></li>
                   {% endif %}
                 </ul>
               </li>
+              <!--LInks to the shop and cart and pastorder pages-->
               <li class="menu-item"><a href="{% url 'shop' %}">🛒 Shop</a></li>
               <li class="menu-item"><a href="{% url 'Cart' %}">🛒 Cart</a></li>
              
@@ -75,22 +56,4 @@
 
     </body>
 
-
-
-<!-- 
-    <script>
-        function toggleDropdown() {
-          var dropdown = document.getElementById("userDropdown");
-          dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-        }
-      
-        window.onclick = function(event) {
-          if (!event.target.matches('.dropdown-button')) {
-            var dropdown = document.getElementById("userDropdown");
-            if (dropdown && dropdown.style.display === "block") {
-              dropdown.style.display = "none";
-            }
-          }
-        };
-      </script> -->
 </html> 

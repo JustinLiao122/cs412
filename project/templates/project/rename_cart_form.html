@@ -1,24 +1,20 @@
+<!--project/rename_cart_form.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/25/2025-->
+<!--Description: html form to display a form to rename a carts-->
+
 {% extends 'project/base.html' %}
 
 {% block content %}
 
-
 <h2>Rename Cart</h2>
- <!-- form that uses the attributes of model Profile  -->
+<!--A form that displayed hte passed context form that calls RenameCart with the cart it to rename the cart-->
 
 <form action= "{% url 'RenameCart' cart.id %}" method = 'POST'>
     {% csrf_token %}
-   
-
-    
     <table>
         {{form.as_table}}
-    </table>
-
-
-    
+    </table>    
      <input type="submit" name="submit" value="submit">
 </form>
-
 
 {% endblock %}

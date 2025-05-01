@@ -14,7 +14,7 @@ import requests
 #[[-1,Meats,-1,-1,-1,dairy, -1],
 # [-1,-1,pasta,asian,chips,-1, household],
 # [-1,-1,-1,-1,candy,-1,-1],
-# [-1,fruits, -1,-1,-1,-1,-1],
+# [-1,fruits, -1,-1,-1,-1,-1],s
 # [Main,-1,selfcheckout, -1,-1,-1,back]]
 
 import heapq

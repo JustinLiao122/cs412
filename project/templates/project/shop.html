@@ -1,34 +1,37 @@
+<!--project/shop.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/25/2025-->
+<!--Description: html form to display all the items objects  -->
+
 {% extends 'project/base.html' %}
-
-
 {% block content %}
 
-
-
-
 <div class="row">
-
+    <!--this includes the serach form which acts like a query-->
     <div class="row">
         {% include "project/search.html" %}    
     </div>
 
         <div class = "page">
-
+            
             <div  class="page-prev">
+            <!--check if the page is pagenated -->
             {% if is_paginated %}
+                        <!--check if the page has a previous meaning it is not on the first page so include a Previous button to go back a page--> 
                         {% if page_obj.has_previous %}
                             <a href="?page={{ page_obj.previous_page_number }}"><p>Previous</p></a>
                         {% endif %}
 
             {% endif %}
             </div>
-
+            <!--display the page number you are on out of the tottla number of pages-->
             <div class="page-number">
                 <h3>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</h3>
             </div>
 
             <div class="page-next">
+            <!--check if the page is pagenated -->
             {% if is_paginated %}
+                    <!--check if the page has a next meaning it is not on the last page so include a Next button to go forward a page--> 
                     {% if page_obj.has_next %}
                         <a href="?page={{ page_obj.next_page_number }}"><p>Next</p></a>
                     {% endif %}
@@ -37,7 +40,7 @@
 
         </div>
 
-
+        <!--this shows all the items and there name and price and pciture where the name and image are goruped to be click able to redirect the user to a html that displays a single isntance of that item--> 
         <div class="shop-grid">
             {% for item in items %}
                 <div class="shop-item">
@@ -46,19 +49,23 @@
                         <p>{{ item.name }}</p>
                     </a>
                     <p>${{ item.price }}</p>
+                    {% if user.is_authenticated %}
                     <form action="{% url 'AddToCart' item.id %}" method="post">
                         {% csrf_token %}
                         <button type="submit">Add to Cart</button>
                     </form>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>
 
 
         <div class = "page">
-
+           
             <div  class="page-prev">
+            <!--check if the page is pagenated -->
             {% if is_paginated %}
+                        <!--check if the page has a previous meaning it is not on the first page so include a Previous button to go back a page--> 
                         {% if page_obj.has_previous %}
                             <a href="?page={{ page_obj.previous_page_number }}"><p>Previous</p></a>
                         {% endif %}
@@ -67,11 +74,14 @@
             </div>
 
             <div class="page-number">
+                <!--display the page number you are on out of the tottla number of pages-->
                 <h3>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</h3>
             </div>
 
             <div class="page-next">
+            <!--check if the page is pagenated -->
             {% if is_paginated %}
+                    <!--check if the page has a next meaning it is not on the last page so include a Next button to go forward a page--> 
                     {% if page_obj.has_next %}
                         <a href="?page={{ page_obj.next_page_number }}"><p>Next</p></a>
                     {% endif %}
@@ -80,10 +90,6 @@
 
         </div>
 
-
 </div>
-
-
-
 
 {% endblock %}

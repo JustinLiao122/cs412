@@ -1,11 +1,14 @@
+<!--project/create_customer_form.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/16/2025-->
+<!--Description: html form to display a form for create a customer cart-->
+
 {% extends 'project/base.html' %}
 
 {% block content %}
 
 
 <h2>Create Customer</h2>
- <!-- form that uses the attributes of model Profile  -->
-
+<!--a form when submitted will call create_customer to create a customer and user  with the table filled out-->
 <form action= "{% url 'create_customer' %}" method = 'POST'>
     {% csrf_token %}
    

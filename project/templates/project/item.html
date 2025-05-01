@@ -1,4 +1,6 @@
-
+<!--project/create_customer_form.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/16/2025-->
+<!--Description: html form to display a single instance of an item-->
 {% extends 'project/base.html' %}
 
 {% block content %}
@@ -32,10 +34,13 @@
     </tr>
 
     <tr>
+        <!--A button to add the item to cart-->
+        {% if user.is_authenticated %}
         <td><form action="{% url 'AddToCart' item.id %}" method="post">
             {% csrf_token %}
             <button type="submit">Add to Cart</button>
         </form>
+        {% endif %}
 
         </td>
     </tr>

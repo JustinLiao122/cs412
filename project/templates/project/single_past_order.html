@@ -1,11 +1,9 @@
-
+<!--project/single_past_order.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/25/2025-->
+<!--Description: html form to display a singel instance of a pastorder  -->
 {% extends 'project/base.html' %}
 
 {% block content %}
-
-
-
-
 
 <table>
     <tr>
@@ -16,6 +14,7 @@
             <p>Total Price: {{order.total_price|floatformat:2}}</p>
         </td>
         <td>
+            <!--A form that takes a number form 1 to 10 as an input and called SplitRoute whihc will split the route to the numebr the user put in-->
             <form action="{% url 'SplitRoute' order.id %}" method="POST">
                 {% csrf_token %}
                 <label for="num_splits"><p>Split between how many people?</p></label>
@@ -24,6 +23,7 @@
               </form>
         </td>
         <td>
+            <!--A form that calles reorder to create a new cart based on this pastorder-->
             <form action="{% url 'reorder' order.id %}" method="POST">
                 {% csrf_token %}
                 <button type="submit">Reorder</button>
@@ -33,7 +33,9 @@
 </table>
 <table>
     <tr>
+        <!--checks if splits is in routes if it is we need have buttosn to allow the user to switch between the routess-->
         {% if "splits" in order.routes %}
+        <!--iterates throgh all the routes in splits and displays then as a button and gives it the value of the route name-->
         {% for route, store in order.routes.splits.items %}
         <td>
             <form action="{% url 'PastOrder' order.id %}" method="GET">
@@ -49,6 +51,7 @@
     </tr>
 </table>
 
+<!--iterates through all the stores in the route-->
 {% for store, values in selected_route.items %}
 <table>
     <thead>
@@ -63,14 +66,17 @@
         </tr>
     </thead>
     <tbody>
+        <!--iterateis through all the asiles and there items in the store-->
         {% for aisle, items in values.aisles.items %}
         <tr>
             <td>
                 <p>{{ aisle }}</p>
             </td>
             <td>
+                <!--checks if there are any items -->
                 {% if items %}
                     <ul>
+                        <!--goes through all the items and displays them-->
                         {% for item in items %}
                             <li><p>{{ item }}</p></li>
                         {% endfor %}
@@ -89,26 +95,35 @@
 {{ route|json_script:"route-data" }}
 {{ path|json_script:"path-data" }}
 
+<!--this is my canvas-->
 <svg id="storeMap" width="1200" height="420"></svg>
+
+<!--using the D3.js library-->
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
 <script>
+//this defines my urls as varabies to be used later
 const SwitchStart = "{% url 'SwitchStart' order.id %}";
 const PastOrder = "{% url 'PastOrder' order.id %}";
 const selectedRoute = "{{ selected_route_name }}";
 
+//gets the CSRF token 
 function getCSRFToken() {
     const cookie = document.cookie.split("; ").find(row => row.startsWith("csrftoken="));
     return cookie ? cookie.split("=")[1] : "";
 }
 
+//parse the data fromt he context varbale so javasricpt can use them 
 const storeLayout = JSON.parse(document.getElementById('layout-data').textContent);
 const route = JSON.parse(document.getElementById('route-data').textContent);   // aisle names
 const path = JSON.parse(document.getElementById('path-data').textContent);     // list of coordinates
 
+
+//size of each cell in the gird
 const cellSize = 30;
 const svg = d3.select("#storeMap");
+//store the corrds of eahc aisle
 const aisleCoords = {};
 
 // Draw the grid and circles
@@ -117,6 +132,7 @@ storeLayout.forEach((row, y) => {
         const px = x * cellSize;
         const py = y * cellSize;
 
+        // Draw each cell as a light gray but if it is -1 it is balck to indeciate a wall 
         svg.append("rect")
             .attr("x", px)
             .attr("y", py)
@@ -125,6 +141,7 @@ storeLayout.forEach((row, y) => {
             .attr("fill", cell === -1 ? "#000000" : "#f3f4f6")
             .attr("stroke", "#ccc");
 
+        // checks if the cell is an aisle whihc is just not 0 or -1 and draws a circle with the label
         if (cell !== -1 && cell !== 0) {
             aisleCoords[cell] = [x, y];
 
@@ -132,22 +149,26 @@ storeLayout.forEach((row, y) => {
                 .attr("cx", px + cellSize / 2)
                 .attr("cy", py + cellSize / 2)
                 .attr("r", 20)
-                .attr("fill", route.includes(cell) ? "#007bff" : "#6b7280");  
+                .attr("fill", route.includes(cell) ? "#007bff" : "#6b7280"); //this checks if the cell is in the path if it is make it blue to indacte you are going there on ehte map 
 
+            //if the cell is Main or is back make them click able
             if (cell === "Main" || cell === "Back") {
                 circle
-                    .style("cursor", "pointer")
+                    .style("cursor", "pointer")//change the mouse cursor to a pointer to show that it is clickable 
                     .attr("fill", "#14532d")
                     .on("click", () => {
+                        //on click it wil make a POST request to the SwitchStart url passing tow query parameters which cell they slected back or main and the route they are on so it only changes for that route
                         fetch(`${SwitchStart}?start=${cell}&selected_route=${selectedRoute}`, {
                             method: "POST",
                             headers: { "X-CSRFToken": getCSRFToken() }
                         }).then(() => {
+                            //after the POST request is finsihed it will redirect to the PastOrder udl but keeping the sleected rotue in the query so it just redirects to the sma epage but with updated route
                             window.location.href = `${PastOrder}?selected_route=${selectedRoute}`;
                         });
                     });
             }
 
+            //labing each circle with teh aisle
             svg.append("text")
                 .attr("x", px + cellSize / 2)
                 .attr("y", py + cellSize / 2 + 4)
@@ -159,6 +180,7 @@ storeLayout.forEach((row, y) => {
     });
 });
 
+// this gets the path and draws a blue line through all the cells that are int he path 
 for (let i = 0; i < path.length - 1; i++) {
     const [y1, x1] = path[i];
     const [y2, x2] = path[i + 1];

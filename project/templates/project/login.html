@@ -1,5 +1,5 @@
-<!--mini_fb/show_profile.html-->
-<!--Author: Justin Liao (liaoju@bu.edu), 3/25/2025-->
+<!--project/login.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/25/2025-->
 <!--Description: html form to display login page-->
 
 {% extends 'project/base.html' %}
@@ -7,9 +7,9 @@
 {% block content %}
 
 
-<h1>Login to our Mini FaceBook</h1>
+<h1>Login to AislePliot</h1>
 
-<!--form to take in user and password and redirects to show_all_profiles aopn succesfull submission-->
+<!--form to take in user and password and redirects to shop aopn succesfull submission-->
 
 <form method="post"  action="{% url 'Login' %}">
     {% csrf_token %}
@@ -17,11 +17,6 @@
     <input type="submit" value="Login">
     <input type="hidden" name="next" value = "{% url 'shop' %}">
 </form>
-
-
-
-
-
 
 
 {% endblock %}

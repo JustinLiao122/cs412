@@ -1,11 +1,9 @@
+<!--project/create_customer_form.html-->
+<!--Author: Justin Liao (liaoju@bu.edu), 4/16/2025-->
+<!--Description: html form to display a form for deleting a cart-->
 {% extends 'project/base.html' %}
 
 {% block content %}
-
-
-
-
-
 
 
 <table>
@@ -24,14 +22,14 @@
     </tr>
     <tr>
         <td>
-            <!-- form that sends a POST request to delete the status message-->
+            <!-- form that sends a POST request to delete the cart -->
             <form method = 'POST'>
                 {% csrf_token %}
                 <input type="submit" name="yes" value="yes">
             </form>
         </td>
         <td>
-            <!-- form for the cancel button that sends a GET request to the correct url that corresponds to the profile that the status message is assoicated to-->
+            <!-- form for the cancel button that sends a GET request-->
             <form action= "{% url 'Cart' %}" method = 'GET'>
                 {% csrf_token %}
                 <input type="submit" name="no" value="no">

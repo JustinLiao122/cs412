@@ -155,10 +155,16 @@ class Shop(ListView):
 
 
 
-class ActiveCartDetailView(TemplateView):
+class ActiveCartDetailView(LoginRequiredMixin,TemplateView):
 
     #class that inherts form TemplateView and displays the cart.html 
     template_name = "project/cart.html"
+
+
+    def get_login_url(self) -> str:
+        #redircets the use to the login page if they are not logged in already this is from LoginRequiredMixin
+        '''return the URL required for login'''
+        return reverse('Login') 
 
 
     def get_context_data(self, **kwargs):
@@ -236,37 +242,50 @@ def remove_from_cart(request, item_id, cart_id):
 def AddToCartView(request, item_id):
     #method to added a certian item to a cart
 
-    #finds the item the user selected that is passed 
-    item = Item.objects.get(pk = item_id)
-    #finds the current user and finds the coressponding customer
-    user = request.user
-    customer = Customer.objects.get(user = user)
-    #finds the active cart that the user is on right now
-    cart = Cart.objects.get(customer = customer, is_active=True)
 
-    #create a CartItem object to define the relationship from cart to item or get it if it already esists
-    cartitem, created = CartItem.objects.get_or_create(cart=cart, item=item)
-    #check if it was created or if it was grabbed if it was grabbed that means the item was already in the cart so the user wants to add another one so we change the quantity of that item in the cart
-    if not created:
-        cartitem.quantity += 1
-        cartitem.save()
+    if  request.user.is_authenticated:
+        #finds the item the user selected that is passed 
+        item = Item.objects.get(pk = item_id)
+        #finds the current user and finds the coressponding customer
+        user = request.user
+        customer = Customer.objects.get(user = user)
+        #finds the active cart that the user is on right now
+        cart = Cart.objects.get(customer = customer, is_active=True)
+
+        #create a CartItem object to define the relationship from cart to item or get it if it already esists
+        cartitem, created = CartItem.objects.get_or_create(cart=cart, item=item)
+        #check if it was created or if it was grabbed if it was grabbed that means the item was already in the cart so the user wants to add another one so we change the quantity of that item in the cart
+        if not created:
+            cartitem.quantity += 1
+            cartitem.save()
 
     #return sucess dont need to redirect to anything so the user stays on the same page and what ever section they were scrolled to 
     return HttpResponse(status=204)
 
 
-class PastOrders(ListView):
+class PastOrders(LoginRequiredMixin,ListView):
     #class that inherits from ListView that displays a list off PastOrder Objects in past_order.html 
     model = PastOrder
     template_name = "project/past_order.html"
     context_object_name = "past_order"
     paginate_by = 50
 
+    def get_login_url(self) -> str:
+        #redircets the use to the login page if they are not logged in already this is from LoginRequiredMixin
+        '''return the URL required for login'''
+        return reverse('Login') 
+
+
 
     def get_queryset(self):
         # THis method is used to query the database and filter the PastOrders based on the lastest to past 
 
         results = super().get_queryset()
+        #gets the current logged in user
+        user = self.request.user
+        # match cusmoter with the current logged in user
+        customer = Customer.objects.get(user = user)
+        results = results.filter(customer= customer)
         results = results.order_by("-timestamp")
        
         
