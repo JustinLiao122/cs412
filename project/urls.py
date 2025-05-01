@@ -11,8 +11,7 @@ from .views import *
 
 #url patterns for this app
 urlpatterns = [ 
-    path(r'', views.Welcome.as_view(), name='welcome'),
-    path(r'shop/', views.Shop.as_view(), name='shop'),
+    path(r'', views.Shop.as_view(), name='shop'),
     path(r'item/<int:pk>/', views.SingleItem.as_view(), name='item'),
     path(r'cart/', views.ActiveCartDetailView.as_view(), name='Cart'),
     path(r'PastOrders/', views.PastOrders.as_view(), name='PastOrders'),
