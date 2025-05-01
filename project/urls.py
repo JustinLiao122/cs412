@@ -18,7 +18,7 @@ urlpatterns = [
     path(r'PastOrders/', views.PastOrders.as_view(), name='PastOrders'),
     path('login/', auth_views.LoginView.as_view(template_name='project/login.html'), name='Login'), ## NEW
 	path('logout/', auth_views.LogoutView.as_view(template_name='project/logged_out.html'), name='Logout'), ## NEW
-    path(r'cart/add/<int:item_id>/', views.AddToCartView.as_view(), name='AddToCart'),
+    path(r'cart/add/<int:item_id>/', views.AddToCartView, name='AddToCart'),
     path('cart/switch/<int:cart_id>/', views.switch_to_cart, name='switch_to_cart'),
     path('cart/remove/<int:item_id>/<int:cart_id>/', views.remove_from_cart, name='remove_from_cart'),
     path('orderDetail/<int:cart_id>/', views.orderDetail.as_view() , name= 'OrderDetail'),

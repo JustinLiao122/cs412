@@ -29,10 +29,12 @@
             
             <a href="{% url 'CreateCart' %}"><P>🛒 Create Cart</P></a>
         </td>
+        {% if cart %}
         <td>
             
             <a href="{% url 'RenameCart' cart.id %}"><P>🛒 Rename Cart</P></a>
         </td>
+        {% endif %}
     </tr>
 </table>
 {% if cart %}
@@ -62,23 +64,26 @@
 </tr>
 {% endif %}
 
-
-<tr>
-    <td>
-        <form action="{% url 'OrderDetail' cart.id %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Order Detail</button>
-    </form>
-    </td>
-    <td>
-        <a href="{% url 'DeleteCart' cart.id %}"><P>🛒Delete Cart</P></a>
-    </td>
-</tr>
-
-    
-
-
 </table>
+
+
+
+
+<div class = "CartOperations">
+    <table>
+    <tr>
+        <td>
+            <form action="{% url 'OrderDetail' cart.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Order Detail</button>
+        </form>
+        </td>
+        <td>
+            <a href="{% url 'DeleteCart' cart.id %}"><P>🛒Delete Cart</P></a>
+        </td>
+    </tr>
+</table>
+</div>
 {% endif %}
 
 

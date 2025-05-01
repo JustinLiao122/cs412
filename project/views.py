@@ -11,6 +11,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from project.search_client import es
+from django.http import HttpResponse
+
 import math
 
 
@@ -164,6 +166,26 @@ def remove_from_cart(request, item_id, cart_id):
     return redirect('Cart')
 
 
+
+
+
+
+
+def AddToCartView(request, item_id):
+    item = Item.objects.get(pk = item_id)
+    user = request.user
+    customer = Customer.objects.get(user = user)
+    cart = Cart.objects.get(customer = customer, is_active=True)
+
+    cartitem, created = CartItem.objects.get_or_create(cart=cart, item=item)
+    if not created:
+        cartitem.quantity += 1
+        cartitem.save()
+
+    
+    return HttpResponse(status=204)
+
+
 class PastOrders(ListView):
 
     model = PastOrder
@@ -176,7 +198,7 @@ class PastOrders(ListView):
         # THis method is used to query the database and filter the items based on the submisson of the form in the url
             
         results = super().get_queryset()
-        results.order_by("timestamp")
+        results = results.order_by("-timestamp")
        
         
         return results
@@ -192,23 +214,6 @@ class RenameCartView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('Cart') 
-
-class AddToCartView(View):
-
-
-    def post(self, request, item_id):
-        item = Item.objects.get(pk = item_id)
-        user = request.user
-        customer = Customer.objects.get(user = user)
-        cart = Cart.objects.get(customer = customer, is_active=True)
-
-        cartitem, created = CartItem.objects.get_or_create(cart=cart, item=item)
-        if not created:
-            cartitem.quantity += 1
-            cartitem.save()
-
-        
-        return  redirect(reverse('shop'))
 
 
 
@@ -294,44 +299,61 @@ class orderDetail(View):
         user = request.user
         customer = Customer.objects.get(user = user)
         cart = Cart.objects.get(pk = cart_id)
-        cart.removed = True
-        cart.is_active = False
-        cart.save()
-        cartItems = CartItem.objects.filter(cart = cart)
-        total_price = 0 
-        items = ""
-        list_items = []
-        for item in cartItems:
-            total_price += item.item.price
-            items += item.item.name + "|"
-            list_items.append(item.item)
-        routes = best_route(list_items , "Main" , "SelfCheckOut")
 
-        pastOrder = PastOrder(customer= customer,
-                             total_price = total_price,
-                              items =items,
-                              cart = cart,
-                             routes={"full": routes}
-                               )
-        
-        pastOrder.save()
-        
-        
+        if CartItem.objects.filter(cart = cart).count() >=1 :
+            cart.removed = True
+            cart.is_active = False
+            cart.save()
+            cartItems = CartItem.objects.filter(cart = cart)
+            total_price = 0 
+            items = ""
+            list_items = []
+            for item in cartItems:
+                total_price += item.item.price
+                items += item.item.name + "|"
+                list_items.append(item.item)
+            routes = best_route(list_items , "Main" , "SelfCheckOut")
+
+            pastOrder = PastOrder(customer= customer,
+                                total_price = total_price,
+                                items =items,
+                                cart = cart,
+                                routes={"full": routes}
+                                )
             
-        try:
-            user = self.request.user
-            customer = Customer.objects.get(user = user)
-            set_cart = Cart.objects.filter(customer = customer ,is_active = False,  removed = False).latest("updated_at")
+            pastOrder.save()
+            
+            
+                
+            try:
+                user = self.request.user
+                customer = Customer.objects.get(user = user)
+                set_cart = Cart.objects.filter(customer = customer ,is_active = False,  removed = False).latest("updated_at")
 
-            set_cart.is_active = True
-            set_cart.save()
-        except Cart.DoesNotExist:
-            cart = None
+                set_cart.is_active = True
+                set_cart.save()
+            except Cart.DoesNotExist:
+                cart = None
+
+
+
+            orders = PastOrder.objects.order_by("-timestamp")
+            if orders.count() > 10 : 
+
+                delete_orders = orders[10:].values_list('id', flat=True)
+                PastOrder.objects.filter(id__in=delete_orders).delete()
+
+
+            
 
 
 
 
-        return redirect('PastOrder' , pk=pastOrder.pk)
+            return redirect('PastOrder' , pk=pastOrder.pk)
+        
+        else:
+            
+            return redirect('Cart')
     
 
 
